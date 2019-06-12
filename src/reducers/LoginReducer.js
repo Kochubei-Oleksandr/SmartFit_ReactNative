@@ -1,9 +1,4 @@
-import { LOGIN } from '../index'
-
-const INITIAL_STATE = {
-    //все персональные данные
-    personalData: [],
-}
+import { ERRORS, LOGIN, INITIAL_STATE } from '../index';
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
@@ -11,7 +6,12 @@ export default (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 personalData: action.payload
-            }
+            };
+        case ERRORS:
+            return {
+                ...state,
+                errors: action.payload
+            };
         default:
             return state
     }

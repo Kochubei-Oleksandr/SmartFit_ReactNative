@@ -1,4 +1,4 @@
-import LocalizedStrings from 'react-native-localization'
+import LocalizedStrings from 'react-native-localization';
 
 const Lang = new LocalizedStrings({
     "en-US":{
@@ -21,6 +21,6 @@ const Lang = new LocalizedStrings({
         login:"Вход",
         submit:"Подтвердить",
     }
-})
+});
 
 export { Lang }

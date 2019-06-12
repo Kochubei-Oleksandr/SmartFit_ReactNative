@@ -1,15 +1,12 @@
-import React from 'react'
-import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation'
-
-import { Register, Diary, Trainers, Lang, LoginConnect} from '../index'
-// import Login from '../components/auth/Login'
-import CustomHeader from '../hoc/CustomHeader'
-
+import React from 'react';
+import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
+import { Register, Diary, Trainers, Lang, LoginConnect} from '../index';
+// import CustomHeader from '../hoc/CustomHeader'
 
 const AppStack = createStackNavigator(
     { Diary: Diary},
     { Trainers: Trainers},
-)
+);
 const AuthStack = createStackNavigator(
     {
         Login: {
@@ -32,7 +29,7 @@ const AuthStack = createStackNavigator(
             },
         },
     }
-)
+);
 
 export default createAppContainer(createSwitchNavigator(
     {
