@@ -5,5 +5,10 @@ const INITIAL_STATE = {
     errors: []
 };
 
-export { INITIAL_STATE }
+const STATE_KEY = {};
+for (let key in INITIAL_STATE) {
+    STATE_KEY[key] = key
+}
+
+export { INITIAL_STATE, STATE_KEY }
 

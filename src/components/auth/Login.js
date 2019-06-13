@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { AsyncStorage, View } from 'react-native';
 import { connect } from 'react-redux';
-import { CLIENT_API, LOGIN, actionApp, TextInputUI, Lang, ButtonsUI } from '../../index';
+import { CLIENT_API, STATE_KEY, actionApp, TextInputUI, Lang, ButtonsUI } from '../../index';
 
 class Login extends Component {
     state = {
@@ -17,7 +17,7 @@ class Login extends Component {
             },
             'post',
             CLIENT_API+'/login',
-            LOGIN
+            STATE_KEY.personalData
         )
         // console.log(this.props)
     };
@@ -47,8 +47,8 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    personalData: state.get.personalData,
-    errors: state.get.errors,
+    personalData: state.personalData,
+    errors: state.errors,
 });
 
 const LoginConnect = connect(mapStateToProps, { actionApp })(Login);

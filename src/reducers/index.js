@@ -1,6 +1,8 @@
-import { combineReducers } from 'redux';
-import LoginReducer from './LoginReducer';
+import { INITIAL_STATE } from '../index';
 
-export default combineReducers({
-    get: LoginReducer
-})
+export default (state = INITIAL_STATE, action) => {
+    return {
+        ...state,
+        [action.type]: action.payload
+    };
+}

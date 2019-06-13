@@ -1,4 +1,4 @@
-import { ERRORS } from '../index';
+import { STATE_KEY } from '../index';
 import axios from 'axios';
 import { AsyncStorage } from "react-native";
 
@@ -8,7 +8,7 @@ export const actionApp = (params, method, url, type) => dispatch => {
         return data
     }
     function onError(error) {
-        dispatch({ type: ERRORS, payload: error });
+        dispatch({ type: STATE_KEY.errors, payload: error });
         return error
     }
 
