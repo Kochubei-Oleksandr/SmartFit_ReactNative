@@ -28,7 +28,7 @@ class Login extends Component {
             })
     };
     componentDidMount() {
-        AsyncStorage.getItem("mob_token11").then((value) => {
+        AsyncStorage.getItem("mob_token").then((value) => {
             this.props.navigation.navigate(value ? 'App' : 'Auth')
         }).done()
     }
