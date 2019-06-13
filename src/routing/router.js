@@ -1,6 +1,6 @@
 import React from 'react';
 import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import { Register, Diary, Trainers, Lang, LoginConnect} from '../index';
+import { RegisterConnect, Diary, Trainers, Lang, LoginConnect} from '../index';
 // import CustomHeader from '../hoc/CustomHeader'
 
 const AppStack = createStackNavigator(
@@ -16,7 +16,12 @@ const AuthStack = createStackNavigator(
                 headerTitle: Lang.login,
             }
         },
-        Register: { screen: Register },
+        Register: {
+            screen: RegisterConnect,
+            navigationOptions: {
+                headerTitle: Lang.register,
+            }
+        },
     },
     {
         defaultNavigationOptions: {

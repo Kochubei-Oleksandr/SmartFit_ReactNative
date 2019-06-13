@@ -13,3 +13,4 @@ export * from './components/trainers/Trainers';
 //Add components UI
 export * from './ui/textInput/TextInput';
 export * from './ui/buttons/Buttons';
+export * from './ui/switches/Switches';

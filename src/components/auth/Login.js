@@ -8,11 +8,11 @@ class Login extends Component {
         email: '',
         password: ''
     };
-    login = (email, password) => {
+    login = () => {
         this.props.actionApp (
             {
-                email: email,
-                password: password,
+                email: this.state.email,
+                password: this.state.password,
                 mobile: 1
             },
             'post',
@@ -28,7 +28,7 @@ class Login extends Component {
             })
     };
     componentDidMount() {
-        AsyncStorage.getItem("mob_token").then((value) => {
+        AsyncStorage.getItem("mob_token11").then((value) => {
             this.props.navigation.navigate(value ? 'App' : 'Auth')
         }).done()
     }
@@ -49,8 +49,11 @@ class Login extends Component {
                 />
                 <ButtonsUI
                     btnName={Lang.submit}
-                    onclick={() => this.login(this.state.email, this.state.password)}
+                    onclick={() => this.login()}
                 />
+                <Text onPress={() => this.props.navigation.navigate('Register')}>
+                    {Lang.register}
+                </Text>
             </View>
         );
     }
