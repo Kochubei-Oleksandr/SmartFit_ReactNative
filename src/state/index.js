@@ -1,8 +1,10 @@
 const INITIAL_STATE = {
     //все персональные данные
     personalData: [],
-    //Все ошибки с бэка
-    errors: {}
+    //Все ошибки форм с бэка
+    formErrors: {},
+    //Все логические ошибки с бэка
+    errors: '',
 };
 
 const STATE_KEY = {};

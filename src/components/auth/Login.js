@@ -9,19 +9,26 @@ class Login extends Component {
         password: ''
     };
     login = (email, password) => {
-        this.props.actionApp
-        (
+        this.props.actionApp (
             {
                 email: email,
                 password: password,
+                mobile: 1
             },
             'post',
             CLIENT_API+'/login',
             STATE_KEY.personalData
         )
+            .then(success => {
+                if (success === true) {
+                    AsyncStorage.setItem('mob_token', this.props.personalData.mob_token);
+                    AsyncStorage.setItem('name', this.props.personalData.name);
+                    this.props.navigation.navigate('App');
+                }
+            })
     };
     componentDidMount() {
-        AsyncStorage.getItem("mob_token11").then((value) => {
+        AsyncStorage.getItem("mob_token").then((value) => {
             this.props.navigation.navigate(value ? 'App' : 'Auth')
         }).done()
     }
@@ -30,13 +37,13 @@ class Login extends Component {
             <View>
                 <TextInputUI
                     fieldName={'email'}
-                    error={this.props.errors}
+                    formErrors={this.props.formErrors}
                     placeholder='Email'
                     changeInput={(email) => this.setState({email})}
                 />
                 <TextInputUI
                     fieldName={'password'}
-                    error={this.props.errors}
+                    formErrors={this.props.formErrors}
                     placeholder={Lang.password}
                     changeInput={(password) => this.setState({password})}
                 />
@@ -51,7 +58,7 @@ class Login extends Component {
 
 const mapStateToProps = state => ({
     personalData: state.personalData,
-    errors: state.errors,
+    formErrors: state.formErrors,
 });
 
 const LoginConnect = connect(mapStateToProps, { actionApp })(Login);

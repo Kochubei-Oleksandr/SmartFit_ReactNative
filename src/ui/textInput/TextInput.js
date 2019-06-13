@@ -13,8 +13,8 @@ const styles = StyleSheet.create({
 export class TextInputUI extends Component {
     render() {
         const checkError = (field) => {
-            if (this.props.error) {
-                return this.props.error.hasOwnProperty(field) ? this.props.error[field] : null;
+            if (this.props.formErrors) {
+                return this.props.formErrors.hasOwnProperty(field) ? this.props.formErrors[field] : null;
             }
         };
         return (
