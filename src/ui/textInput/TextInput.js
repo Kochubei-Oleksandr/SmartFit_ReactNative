@@ -1,5 +1,5 @@
-import React from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import React, {Component} from 'react';
+import {TextInput, StyleSheet, View, Text} from 'react-native';
 
 const styles = StyleSheet.create({
     input: {
@@ -10,17 +10,25 @@ const styles = StyleSheet.create({
     }
 });
 
-const TextInputUI = ({placeholder, changeInput}) => {
-    return (
-        <TextInput style = {styles.input}
-           placeholder = {placeholder}
-           placeholderTextColor = "#9a73ef"
-           autoCapitalize = "none"
-           onChangeText = {changeInput}
-        />
-    )
-};
-
-export { TextInputUI }
+export class TextInputUI extends Component {
+    render() {
+        const checkError = (field) => {
+            if (this.props.error) {
+                return this.props.error.hasOwnProperty(field) ? this.props.error[field] : null;
+            }
+        };
+        return (
+            <View>
+                <TextInput style = {styles.input}
+                   placeholder = {this.props.placeholder}
+                   placeholderTextColor = "#9a73ef"
+                   autoCapitalize = "none"
+                   onChangeText = {this.props.changeInput}
+                />
+                {checkError(this.props.fieldName) ? <Text>{checkError(this.props.fieldName)}</Text> : null}
+            </View>
+        );
+    }
+}
 
 

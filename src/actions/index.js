@@ -3,15 +3,6 @@ import axios from 'axios';
 import { AsyncStorage } from "react-native";
 
 export const actionApp = (params, method, url, type) => dispatch => {
-    function onSuccess(data) {
-        dispatch({ type: type, payload: data });
-        return data
-    }
-    function onError(error) {
-        dispatch({ type: STATE_KEY.errors, payload: error });
-        return error
-    }
-
     AsyncStorage.getItem("mob_token").then((value) => {
         if (method === 'get') {
             params.params.mob_token = value;
@@ -25,10 +16,15 @@ export const actionApp = (params, method, url, type) => dispatch => {
 
     axios({ method: method, url: url, params})
         .then(response => {
-            return onSuccess(response.data)
+            dispatch({ type: type, payload: response.data });
         })
         .catch(error => {
-            return onError(error)
+            if (error.response.status === 422) {
+                dispatch({ type: STATE_KEY.errors, payload: error.response.data.errors });
+            } else {
+                alert(error.response.data.message);
+                // dispatch({ type: STATE_KEY.errors, payload: error.response.data.message });
+            }
         })
 };
 

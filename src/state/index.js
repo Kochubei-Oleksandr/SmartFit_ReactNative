@@ -2,7 +2,7 @@ const INITIAL_STATE = {
     //все персональные данные
     personalData: [],
     //Все ошибки с бэка
-    errors: []
+    errors: {}
 };
 
 const STATE_KEY = {};

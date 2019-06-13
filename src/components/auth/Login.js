@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { AsyncStorage, View } from 'react-native';
+import { AsyncStorage, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { CLIENT_API, STATE_KEY, actionApp, TextInputUI, Lang, ButtonsUI } from '../../index';
 
@@ -8,18 +8,17 @@ class Login extends Component {
         email: '',
         password: ''
     };
-    login = (email, pass) => {
+    login = (email, password) => {
         this.props.actionApp
         (
             {
                 email: email,
-                password: pass,
+                password: password,
             },
             'post',
             CLIENT_API+'/login',
             STATE_KEY.personalData
         )
-        // console.log(this.props)
     };
     componentDidMount() {
         AsyncStorage.getItem("mob_token11").then((value) => {
@@ -30,10 +29,14 @@ class Login extends Component {
         return (
             <View>
                 <TextInputUI
+                    fieldName={'email'}
+                    error={this.props.errors}
                     placeholder='Email'
                     changeInput={(email) => this.setState({email})}
                 />
                 <TextInputUI
+                    fieldName={'password'}
+                    error={this.props.errors}
                     placeholder={Lang.password}
                     changeInput={(password) => this.setState({password})}
                 />
