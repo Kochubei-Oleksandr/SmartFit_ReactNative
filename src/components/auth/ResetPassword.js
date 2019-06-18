@@ -6,8 +6,10 @@ import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, EMAIL_IMG, W
 class ResetPassword extends Component {
     state = {
         email: '',
+        isLoggedIn: false,
     };
     resetPassword = () => {
+        this.setState({isLoggedIn: true});
         this.props.actionApp(
             {
                 email: this.state.email
@@ -17,6 +19,7 @@ class ResetPassword extends Component {
             STATE_KEY.logicSuccess
         )
             .then(success => {
+                this.setState({isLoggedIn: false});
                 if (success === true) {
                     alert(this.props.logicSuccess.message)
                 }
@@ -72,6 +75,7 @@ class ResetPassword extends Component {
                     <ButtonsUI
                         btnName={Lang.submit}
                         onclick={() => this.resetPassword()}
+                        isLoggedIn={this.state.isLoggedIn}
                     />
                 </View>
             </WallpaperUI>

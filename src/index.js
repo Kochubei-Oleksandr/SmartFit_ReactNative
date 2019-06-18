@@ -23,6 +23,7 @@ export * from './ui/textInput/TextInput';
 export * from './ui/buttons/Buttons';
 export * from './ui/switches/Switches';
 export * from './ui/wallpaper/Wallpaper';
+export * from './ui/activityIndicator/ActivityIndicator';
 
 //Add images
 export const USER_IMG = usernameImg;

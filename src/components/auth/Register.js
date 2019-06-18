@@ -11,8 +11,10 @@ export class Register extends Component {
         password: '',
         password_confirmation: '',
         confirm: false,
+        isLoggedIn: false,
     };
     register = () => {
+        this.setState({isLoggedIn: true});
         this.props.actionApp(
             {
                 name: this.state.name,
@@ -27,6 +29,7 @@ export class Register extends Component {
             STATE_KEY.personalData
         )
             .then(success => {
+                this.setState({isLoggedIn: false});
                 if (success === true) {
                     AsyncStorage.setItem('mob_token', this.props.personalData.mob_token);
                     AsyncStorage.setItem('name', this.props.personalData.name);
@@ -101,6 +104,7 @@ export class Register extends Component {
                         <ButtonsUI
                             btnName={Lang.submit}
                             onclick={() => this.register()}
+                            isLoggedIn={this.state.isLoggedIn}
                         />
                     </View>
                 </ScrollView>

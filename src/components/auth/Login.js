@@ -7,9 +7,11 @@ import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, PW_IMG, EMAI
 class Login extends Component {
     state = {
         email: '',
-        password: ''
+        password: '',
+        isLoggedIn: false,
     };
     login = () => {
+        this.setState({isLoggedIn: true});
         this.props.actionApp(
             {
                 email: this.state.email,
@@ -21,6 +23,7 @@ class Login extends Component {
             STATE_KEY.personalData
         )
             .then(success => {
+                this.setState({isLoggedIn: false});
                 if (success === true) {
                     AsyncStorage.setItem('mob_token', this.props.personalData.mob_token);
                     AsyncStorage.setItem('name', this.props.personalData.name);
@@ -89,6 +92,7 @@ class Login extends Component {
                     <ButtonsUI
                         btnName={Lang.submit}
                         onclick={() => this.login()}
+                        isLoggedIn={this.state.isLoggedIn}
                     />
                     <View style={styles.containerSignUp}>
                         <Text onPress={() => this.props.navigation.navigate('Register')} style={styles.text}>Create
