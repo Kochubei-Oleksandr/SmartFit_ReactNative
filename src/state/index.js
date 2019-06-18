@@ -5,6 +5,8 @@ const INITIAL_STATE = {
     formErrors: {},
     //Все логические ошибки с бэка
     errors: '',
+    //Все успешные операции с бэка
+    logicSuccess: '',
 };
 
 const STATE_KEY = {};

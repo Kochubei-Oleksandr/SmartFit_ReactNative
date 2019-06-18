@@ -1,30 +1,24 @@
 import React, {Component} from 'react';
-import {StyleSheet, AsyncStorage, View, Text} from 'react-native';
+import {StyleSheet, AsyncStorage, View} from 'react-native';
 import {connect} from 'react-redux';
-import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, PW_IMG, EMAIL_IMG,
-    WallpaperUI, Lang, ButtonsUI, W, H} from '../../index';
+import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, EMAIL_IMG, WallpaperUI, Lang, ButtonsUI, W, H} from '../../index';
 
-class Login extends Component {
+class ResetPassword extends Component {
     state = {
         email: '',
-        password: ''
     };
-    login = () => {
+    resetPassword = () => {
         this.props.actionApp(
             {
-                email: this.state.email,
-                password: this.state.password,
-                mobile: 1
+                email: this.state.email
             },
             'post',
-            CLIENT_API + '/login',
-            STATE_KEY.personalData
+            CLIENT_API + '/reset-password',
+            STATE_KEY.logicSuccess
         )
             .then(success => {
                 if (success === true) {
-                    AsyncStorage.setItem('mob_token', this.props.personalData.mob_token);
-                    AsyncStorage.setItem('name', this.props.personalData.name);
-                    this.props.navigation.navigate('App');
+                    alert(this.props.logicSuccess.message)
                 }
             })
     };
@@ -74,27 +68,11 @@ class Login extends Component {
                         formErrors={this.props.formErrors}
                         changeInput={(email) => this.setState({email})}
                     />
-                    <TextInputUI
-                        fieldName={'password'}
-                        source={PW_IMG}
-                        placeholder={Lang.password}
-                        returnKeyType={'done'}
-                        autoCapitalize={'none'}
-                        secureTextEntry={true}
-                        autoCorrect={false}
-                        formErrors={this.props.formErrors}
-                        changeInput={(password) => this.setState({password})}
-                    />
 
                     <ButtonsUI
                         btnName={Lang.submit}
-                        onclick={() => this.login()}
+                        onclick={() => this.resetPassword()}
                     />
-                    <View style={styles.containerSignUp}>
-                        <Text onPress={() => this.props.navigation.navigate('Register')} style={styles.text}>Create
-                            Account</Text>
-                        <Text onPress={() => this.props.navigation.navigate('ResetPassword')} style={styles.text}>Forgot Password?</Text>
-                    </View>
                 </View>
             </WallpaperUI>
 
@@ -103,10 +81,10 @@ class Login extends Component {
 }
 
 const mapStateToProps = state => ({
-    personalData: state.personalData,
     formErrors: state.formErrors,
+    logicSuccess: state.logicSuccess,
 });
 
-const LoginConnect = connect(mapStateToProps, {actionApp, changeStore})(Login);
+const ResetPasswordConnect = connect(mapStateToProps, {actionApp, changeStore})(ResetPassword);
 
-export {LoginConnect}
+export {ResetPasswordConnect}

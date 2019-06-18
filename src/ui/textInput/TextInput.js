@@ -40,7 +40,7 @@ export class TextInputUI extends Component {
             <TextInput
                 style={styles.input}
                 placeholder={this.props.placeholder}
-               
+                secureTextEntry={this.props.secureTextEntry}
                 autoCorrect={this.props.autoCorrect}
                 autoCapitalize={this.props.autoCapitalize}
                 returnKeyType={this.props.returnKeyType}

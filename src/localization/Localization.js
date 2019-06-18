@@ -9,6 +9,7 @@ const Lang = new LocalizedStrings({
         register: "Register",
         name: "Name",
         confirmPolicy: 'I agree to the terms of service',
+        resetPassword: 'Password Reset'
 
     },
     en:{
@@ -19,6 +20,7 @@ const Lang = new LocalizedStrings({
         register: "Register",
         name: "Name",
         confirmPolicy: 'I agree to the terms of service',
+        resetPassword: 'Password Reset'
 
     },
     de: {
@@ -29,6 +31,7 @@ const Lang = new LocalizedStrings({
         register: "Anmelden",
         name: "Name",
         confirmPolicy: 'Ich stimme den Nutzungsbedingungen zu',
+        resetPassword: 'Passwort zurücksetzen'
 
     },
     ru: {
@@ -39,6 +42,7 @@ const Lang = new LocalizedStrings({
         register:"Регистрация",
         name:"Имя",
         confirmPolicy: 'Я согласен с условиями использования сервиса',
+        resetPassword: 'Сброс пароля'
     }
 });
 

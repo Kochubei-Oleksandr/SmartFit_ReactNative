@@ -34,3 +34,7 @@ export const actionApp = (params, method, url, type) => async dispatch => {
     return await success;
 };
 
+export const changeStore = (type, payload) => async dispatch => {
+    dispatch({ type: type, payload: payload});
+};
+

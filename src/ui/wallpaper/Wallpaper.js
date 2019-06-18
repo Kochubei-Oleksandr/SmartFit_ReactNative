@@ -3,7 +3,7 @@ import {StyleSheet, ImageBackground} from 'react-native';
 
 import bgSrc from '../../images/wallpaper.png';
 
-export default class Wallpaper extends Component {
+export class WallpaperUI extends Component {
     render() {
         return (
             <ImageBackground style={styles.picture} source={bgSrc}>

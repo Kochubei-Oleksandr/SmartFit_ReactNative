@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {AsyncStorage, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import {CLIENT_API, STATE_KEY, actionApp, TextInputUI, Lang, ButtonsUI, SwitchesUI} from '../../index';
-import Wallpaper from '../../ui/wallpaper/Wallpaper';
+import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, USER_IMG, PW_IMG, EMAIL_IMG,
+    Lang, ButtonsUI, SwitchesUI, WallpaperUI} from '../../index';
 
 export class Register extends Component {
     state = {
@@ -36,6 +36,7 @@ export class Register extends Component {
     };
 
     componentDidMount() {
+        this.props.changeStore(STATE_KEY.formErrors, {});
         AsyncStorage.getItem("mob_token").then((value) => {
             this.props.navigation.navigate(value ? 'App' : 'Register')
         }).done()
@@ -44,32 +45,50 @@ export class Register extends Component {
     render() {
         return (
 
-            <Wallpaper>
+            <WallpaperUI>
                 <ScrollView >
 
                     <View style={styles.container}>
                         <TextInputUI
                             fieldName={'name'}
-                            formErrors={this.props.formErrors}
+                            source={USER_IMG}
                             placeholder={Lang.name}
+                            autoCapitalize={'none'}
+                            returnKeyType={'done'}
+                            autoCorrect={false}
+                            formErrors={this.props.formErrors}
                             changeInput={(name) => this.setState({name})}
                         />
                         <TextInputUI
                             fieldName={'email'}
-                            formErrors={this.props.formErrors}
+                            source={EMAIL_IMG}
                             placeholder='Email'
+                            autoCapitalize={'none'}
+                            returnKeyType={'done'}
+                            autoCorrect={false}
+                            formErrors={this.props.formErrors}
                             changeInput={(email) => this.setState({email})}
                         />
                         <TextInputUI
                             fieldName={'password'}
-                            formErrors={this.props.formErrors}
+                            source={PW_IMG}
                             placeholder={Lang.password}
+                            autoCapitalize={'none'}
+                            returnKeyType={'done'}
+                            secureTextEntry={true}
+                            autoCorrect={false}
+                            formErrors={this.props.formErrors}
                             changeInput={(password) => this.setState({password})}
                         />
                         <TextInputUI
                             fieldName={'password_confirmation'}
-                            formErrors={this.props.formErrors}
+                            source={PW_IMG}
                             placeholder={Lang.password_confirmation}
+                            autoCapitalize={'none'}
+                            returnKeyType={'done'}
+                            secureTextEntry={true}
+                            autoCorrect={false}
+                            formErrors={this.props.formErrors}
                             changeInput={(password_confirmation) => this.setState({password_confirmation})}
                         />
                         <SwitchesUI
@@ -85,7 +104,7 @@ export class Register extends Component {
                         />
                     </View>
                 </ScrollView>
-            </Wallpaper>
+            </WallpaperUI>
         );
     }
 }
@@ -101,6 +120,6 @@ const styles = StyleSheet.create({
         marginVertical: 40
     },
 });
-const RegisterConnect = connect(mapStateToProps, {actionApp})(Register);
+const RegisterConnect = connect(mapStateToProps, {actionApp, changeStore})(Register);
 
 export {RegisterConnect}
