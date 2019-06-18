@@ -1,14 +1,19 @@
 import React from 'react';
+import Dimensions from 'Dimensions';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
-
+const DEVICE_WIDTH = Dimensions.get('window').width;
 const styles = StyleSheet.create({
     submitButton: {
-        backgroundColor: '#7a42f4',
+        backgroundColor: 'rgba(0, 0, 255, 0.5);',
         padding: 10,
-        margin: 15,
-        height: 40,
+        margin: 10,
+        borderRadius: 20,
+        width: DEVICE_WIDTH - 40,
+        height: 40
     },
     submitButtonText:{
+        textAlign: "center",
+        textTransform:"uppercase",
         color: 'white'
     }
 });
