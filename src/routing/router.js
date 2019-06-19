@@ -1,18 +1,12 @@
 import React from 'react';
-import { createSwitchNavigator, createStackNavigator, createAppContainer } from 'react-navigation';
-import { RegisterConnect, Diary, Trainers, Lang, LoginConnect, ResetPasswordConnect} from '../index';
-// import CustomHeader from '../hoc/CustomHeader'
+import { createSwitchNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { RegisterConnect, Diary, Trainers, Plans, Lang, LoginConnect, ResetPasswordConnect} from '../index';
 
-const AppStack = createStackNavigator(
-    { Diary: Diary},
-    { Trainers: Trainers},
-);
 const AuthStack = createStackNavigator(
     {
         Login: {
             screen: LoginConnect,
             navigationOptions: {
-                // header: props => <CustomHeader {...props} />,
                 headerTitle: Lang.login,
             }
         },
@@ -38,6 +32,25 @@ const AuthStack = createStackNavigator(
             headerTitleStyle: {
                 fontWeight: 'bold',
             },
+        },
+    }
+);
+
+const DashboardTabNavigator = createBottomTabNavigator({
+    Diary,
+    Trainers,
+});
+
+const AppStack = createStackNavigator(
+    {
+        DashboardTabNavigator: { screen: DashboardTabNavigator },
+        Diary: { screen: Diary },
+        Trainers: { screen: Trainers },
+        Plans: { screen: Plans },
+    },
+    {
+        defaultNavigationOptions: {
+            header: null,
         },
     }
 );

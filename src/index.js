@@ -16,7 +16,10 @@ export * from './components/auth/Login';
 export * from './components/auth/Register';
 export * from './components/auth/ResetPassword';
 export * from './components/diary/Diary';
+export * from './components/diary/DiaryFood';
+export * from './components/diary/DiaryActivity';
 export * from './components/trainers/Trainers';
+export * from './components/plans/Plans';
 
 //Add components UI
 export * from './ui/textInput/TextInput';
@@ -24,6 +27,7 @@ export * from './ui/buttons/Buttons';
 export * from './ui/switches/Switches';
 export * from './ui/wallpaper/Wallpaper';
 export * from './ui/activityIndicator/ActivityIndicator';
+export * from './ui/header/Header';
 
 //Add images
 export const USER_IMG = usernameImg;
