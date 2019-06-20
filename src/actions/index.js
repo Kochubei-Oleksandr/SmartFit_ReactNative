@@ -1,10 +1,10 @@
-import { STATE_KEY } from '../index';
+import { STATE_KEY, LANG_NOW } from '../index';
 import axios from 'axios';
 import { AsyncStorage } from "react-native";
 
 export const actionApp = (params, method, url, type) => async dispatch => {
 
-    params.lang = 'русский';
+    params.lang = LANG_NOW;
     params.mob_token = await AsyncStorage.getItem('mob_token');
     let success = null;
 

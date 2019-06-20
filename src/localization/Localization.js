@@ -1,24 +1,6 @@
 import LocalizedStrings from 'react-native-localization';
 
 const Lang = new LocalizedStrings({
-    "en-US":{
-        password:"Password",
-        password_confirmation: "Confirm password",
-        login:"Login",
-        submit:"Submit",
-        register: "Register",
-        name: "Name",
-        confirmPolicy: 'I agree to the terms of service',
-        resetPassword: 'Password Reset',
-        diary: 'Diary',
-        trainers: 'Trainers',
-        food: 'Food',
-        activity: 'Activity',
-        progress: 'Progress',
-        personal: 'Personal',
-        diary_food: 'Food Diary',
-        diary_activity: 'Activity Diary',
-    },
     en:{
         password:"Password",
         password_confirmation: "Confirm password",
