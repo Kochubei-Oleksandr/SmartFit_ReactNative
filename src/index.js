@@ -19,7 +19,7 @@ import calendarBlueImg from './images/calendar.png';
 //Add support file & support constant
 export const W = Dimensions.get('window').width;
 export const H = Dimensions.get('window').height;
-export const CLIENT_API = 'https://smartfit.site/api';
+export const CLIENT_API = 'https://client.smartfit.site/api';
 export * from './localization/Localization';
 export * from './actions';
 export * from './state';

@@ -7,6 +7,8 @@ const INITIAL_STATE = {
     errors: '',
     //Все успешные операции с бэка
     logicSuccess: '',
+    //Все съеденные продукты пользователя в дневнике
+    userEatenFood: [],
 };
 
 const STATE_KEY = {};

@@ -3,18 +3,11 @@ import axios from 'axios';
 import { AsyncStorage } from "react-native";
 
 export const actionApp = (params, method, url, type) => async dispatch => {
-    AsyncStorage.getItem("mob_token").then((value) => {
-        if (method === 'get') {
-            params.params.mob_token = value;
-            params.params.lang = 'русский';
-        }
-        if (method === 'post') {
-            params.mob_token = value;
-            params.lang = 'русский';
-        }
-    }).done();
 
+    params.lang = 'русский';
+    params.mob_token = await AsyncStorage.getItem('mob_token');
     let success = null;
+
     await axios({ method: method, url: url, params})
         .then(response => {
             success = true;
@@ -30,8 +23,7 @@ export const actionApp = (params, method, url, type) => async dispatch => {
                 // dispatch({ type: STATE_KEY.errors, payload: error.response.data.message });
             }
         });
-
-    return await success;
+    return success;
 };
 
 export const changeStore = (type, payload) => async dispatch => {

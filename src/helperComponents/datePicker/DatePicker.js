@@ -19,6 +19,7 @@ export class DatePicker extends Component {
     };
 
     render() {
+        const date = this.props.date ? new Date(this.props.date) : new Date();
         return (
             <View>
                 <TouchableImageUI
@@ -26,6 +27,7 @@ export class DatePicker extends Component {
                     source={CALENDAR_BLUE_IMG}
                 />
                 <DateTimePicker
+                    date={date}
                     isVisible={this.state.isDatePicker}
                     onConfirm={(date) => this.handleDatePicked(date)}
                     onCancel={this.hideDateTimePicker}

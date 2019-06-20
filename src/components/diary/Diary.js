@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {ScrollView} from 'react-native';
-import {HeaderUI, DiaryActivity, DiaryFood, Lang} from '../../index';
+import {HeaderUI, DiaryActivity, DiaryFoodConnect, Lang} from '../../index';
 
 
 export class Diary extends Component {
@@ -26,7 +26,7 @@ export class Diary extends Component {
                     onclickRight={() => this.clickRightBtn()}
                     isLeftBtn={this.state.isLeftBtn}
                 />
-                { this.state.isLeftBtn ? <DiaryFood /> : <DiaryActivity /> }
+                { this.state.isLeftBtn ? <DiaryFoodConnect /> : <DiaryActivity /> }
             </ScrollView>
         );
     }
