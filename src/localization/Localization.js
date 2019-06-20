@@ -9,8 +9,13 @@ const Lang = new LocalizedStrings({
         register: "Register",
         name: "Name",
         confirmPolicy: 'I agree to the terms of service',
-        resetPassword: 'Password Reset'
-
+        resetPassword: 'Password Reset',
+        diary: 'Diary',
+        trainers: 'Trainers',
+        food: 'Food',
+        activity: 'Activity',
+        progress: 'Progress',
+        personal: 'Personal',
     },
     en:{
         password:"Password",
@@ -20,8 +25,13 @@ const Lang = new LocalizedStrings({
         register: "Register",
         name: "Name",
         confirmPolicy: 'I agree to the terms of service',
-        resetPassword: 'Password Reset'
-
+        resetPassword: 'Password Reset',
+        diary: 'Diary',
+        trainers: 'Trainers',
+        food: 'Food',
+        activity: 'Activity',
+        progress: 'Progress',
+        personal: 'Personal',
     },
     de: {
         password:"Passwort",
@@ -31,7 +41,13 @@ const Lang = new LocalizedStrings({
         register: "Anmelden",
         name: "Name",
         confirmPolicy: 'Ich stimme den Nutzungsbedingungen zu',
-        resetPassword: 'Passwort zurücksetzen'
+        resetPassword: 'Passwort zurücksetzen',
+        diary: 'Tagebuch',
+        trainers: "Trainer",
+        food: 'Essen',
+        activity: 'Aktivität',
+        progress: 'Fortschritt',
+        personal: 'Persönlich',
 
     },
     ru: {
@@ -42,7 +58,13 @@ const Lang = new LocalizedStrings({
         register:"Регистрация",
         name:"Имя",
         confirmPolicy: 'Я согласен с условиями использования сервиса',
-        resetPassword: 'Сброс пароля'
+        resetPassword: 'Сброс пароля',
+        diary: 'Дневник',
+        trainers: 'Тренера',
+        food: 'Питание',
+        activity: 'Активность',
+        progress: 'Прогресс',
+        personal: 'Персональная',
     }
 });
 

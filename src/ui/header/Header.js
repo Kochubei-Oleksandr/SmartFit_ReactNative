@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { HeaderButtonUI } from '../../index';
+import { HeaderButtonUI, L_GREY, D_BLUE } from '../../index';
 
 const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftBtn}) => {
     const styles = StyleSheet.create({
@@ -21,7 +21,7 @@ const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftB
                         borderBottom={0}
                         borderLeft={0}
                         borderRight={0}
-                        backgroundColor={'#F5FCFF'}
+                        backgroundColor={L_GREY}
                         textColor={'#000'}
                     />
                     <HeaderButtonUI
@@ -30,7 +30,7 @@ const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftB
                         borderBottom={1}
                         borderLeft={1}
                         borderRight={0}
-                        backgroundColor={'#0277BD'}
+                        backgroundColor={D_BLUE}
                         textColor={'#fff'}
                     />
                 </View>
@@ -42,7 +42,7 @@ const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftB
                         borderBottom={1}
                         borderLeft={0}
                         borderRight={1}
-                        backgroundColor={'#0277BD'}
+                        backgroundColor={D_BLUE}
                         textColor={'#fff'}
                     />
                     <HeaderButtonUI
@@ -51,7 +51,7 @@ const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftB
                         borderBottom={0}
                         borderLeft={0}
                         borderRight={0}
-                        backgroundColor={'#F5FCFF'}
+                        backgroundColor={L_GREY}
                         textColor={'#000'}
                     />
                 </View>
