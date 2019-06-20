@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {L_GREY, NORMAL_DATE, DiaryUserStatistics, DatePicker, H, W} from '../../index';
+import {L_GREY, NORMAL_DATE, DiaryUserStatistics, DatePicker, H, W, Tables} from '../../index';
 
 export class DiaryFood extends Component {
     state = {
@@ -45,7 +45,12 @@ export class DiaryFood extends Component {
                     <Text style={styles.textTopDate}>Выбранная дата: {this.state.date}</Text>
                     <DatePicker changeDate={(date) => this.setDate(date)} />
                 </View>
+
                 <DiaryUserStatistics />
+
+                <View>
+                    <Tables />
+                </View>
             </View>
         );
     }
