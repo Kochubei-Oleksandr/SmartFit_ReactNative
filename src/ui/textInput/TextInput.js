@@ -30,22 +30,21 @@ export class TextInputUI extends Component {
             }
         };
         return (
-
-        <View >
-            <Image source={this.props.source} style={styles.inlineImg} />
-            <TextInput
-                style={styles.input}
-                placeholder={this.props.placeholder}
-                secureTextEntry={this.props.secureTextEntry}
-                autoCorrect={this.props.autoCorrect}
-                autoCapitalize={this.props.autoCapitalize}
-                returnKeyType={this.props.returnKeyType}
-                placeholderTextColor="white"
-                underlineColorAndroid="transparent"
-                onChangeText = {this.props.changeInput}
-            />
-            {checkError(this.props.fieldName) ? <Text>{checkError(this.props.fieldName)}</Text> : null}
-        </View>
+            <View >
+                <Image source={this.props.source} style={styles.inlineImg} />
+                <TextInput
+                    style={styles.input}
+                    placeholder={this.props.placeholder}
+                    secureTextEntry={this.props.secureTextEntry}
+                    autoCorrect={this.props.autoCorrect}
+                    autoCapitalize={this.props.autoCapitalize}
+                    returnKeyType={this.props.returnKeyType}
+                    placeholderTextColor="white"
+                    underlineColorAndroid="transparent"
+                    onChangeText = {this.props.changeInput}
+                />
+                {checkError(this.props.fieldName) ? <Text>{checkError(this.props.fieldName)}</Text> : null}
+            </View>
         );
     }
 }

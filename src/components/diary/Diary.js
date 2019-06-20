@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {StyleSheet, View} from 'react-native'
+import React, {Component} from 'react';
+import {ScrollView} from 'react-native';
 import {HeaderUI, DiaryActivity, DiaryFood, Lang} from '../../index';
 
 
@@ -18,24 +18,16 @@ export class Diary extends Component {
     }
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView>
                 <HeaderUI
-                    btnLeftName={'Дневник питания'}
-                    btnRightName={'Дневник активности'}
+                    btnLeftName={Lang.diary_food}
+                    btnRightName={Lang.diary_activity}
                     onclickLeft={() => this.clickLeftBtn()}
                     onclickRight={() => this.clickRightBtn()}
                     isLeftBtn={this.state.isLeftBtn}
                 />
-                {this.state.isLeftBtn ? <DiaryFood /> : <DiaryActivity /> }
-            </View>
+                { this.state.isLeftBtn ? <DiaryFood /> : <DiaryActivity /> }
+            </ScrollView>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});

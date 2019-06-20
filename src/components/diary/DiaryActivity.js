@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import { L_GREY } from '../../index';
 
 export class DiaryActivity extends Component {

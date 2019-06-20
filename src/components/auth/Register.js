@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import {AsyncStorage, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {CLIENT_API, STATE_KEY, actionApp, changeStore, TextInputUI, USER_IMG, PW_IMG, EMAIL_IMG,
@@ -37,7 +37,6 @@ export class Register extends Component {
                 }
             })
     };
-
     componentDidMount() {
         this.props.changeStore(STATE_KEY.formErrors, {});
         AsyncStorage.getItem("mob_token").then((value) => {
@@ -47,10 +46,8 @@ export class Register extends Component {
 
     render() {
         return (
-
             <WallpaperUI>
                 <ScrollView >
-
                     <View style={styles.container}>
                         <TextInputUI
                             fieldName={'name'}
@@ -117,8 +114,6 @@ const mapStateToProps = state => ({
     personalData: state.personalData,
     formErrors: state.formErrors,
 });
-
-
 const styles = StyleSheet.create({
     container: {
         marginVertical: 40

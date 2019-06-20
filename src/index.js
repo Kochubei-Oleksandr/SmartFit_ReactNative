@@ -14,40 +14,47 @@ import personalImg from './images/person.png';
 import personalBlueImg from './images/person_blue.png';
 import progressImg from './images/progress.png';
 import progressBlueImg from './images/progress_blue.png';
+import calendarBlueImg from './images/calendar.png';
 
-//Add support file & constant
+//Add support file & support constant
 export const W = Dimensions.get('window').width;
 export const H = Dimensions.get('window').height;
 export const CLIENT_API = 'https://smartfit.site/api';
 export * from './localization/Localization';
 export * from './actions';
 export * from './state';
+export * from './helperFunctions/Trait';
 
 //Colors const
 export const L_GREY = '#FAFAFA';
+export const D_GREY = '#E0E0E0';
 export const L_BLUE = '#81D4FA';
 export const D_BLUE = '#0277BD';
 
-//Add components
+//Add Main components
 export * from './components/auth/Login';
 export * from './components/auth/Register';
 export * from './components/auth/ResetPassword';
 export * from './components/diary/Diary';
-export * from './components/diary/DiaryFood';
-export * from './components/diary/DiaryActivity';
 export * from './components/trainers/Trainers';
 export * from './components/foodPlans/foodPlans';
 export * from './components/activityPlans/activityPlans';
 export * from './components/profile/Profile';
 export * from './components/progress/Progress';
 
-//Add components UI
+//Add Helper components
+export * from './components/diary/DiaryFood';
+export * from './components/diary/DiaryActivity';
+export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
+export * from './helperComponents/header/Header';
+export * from './helperComponents/datePicker/DatePicker';
+
+//Add UI components
 export * from './ui/textInput/TextInput';
 export * from './ui/buttons/Buttons';
 export * from './ui/switches/Switches';
 export * from './ui/wallpaper/Wallpaper';
 export * from './ui/activityIndicator/ActivityIndicator';
-export * from './ui/header/Header';
 export * from './ui/image/Image';
 
 //Add images
@@ -66,3 +73,4 @@ export const PERSONAL_IMG = personalImg;
 export const PERSONAL_BLUE_IMG = personalBlueImg;
 export const PROGRESS_IMG = progressImg;
 export const PROGRESS_BLUE_IMG = progressBlueImg;
+export const CALENDAR_BLUE_IMG = calendarBlueImg;

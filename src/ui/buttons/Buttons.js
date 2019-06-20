@@ -32,7 +32,6 @@ const ButtonsUI = ({btnName, onclick, isLoggedIn}) => {
 const HeaderButtonUI = ({btnName, onclick, isLoggedIn, borderBottom, borderLeft, borderRight, backgroundColor, textColor}) => {
     const styles = StyleSheet.create({
         submitButton: {
-            // backgroundColor: 'rgba(0, 0, 255, 0.5);',
             backgroundColor: backgroundColor,
             width: W - (W/2),
             padding: 20,

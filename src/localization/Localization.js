@@ -16,6 +16,8 @@ const Lang = new LocalizedStrings({
         activity: 'Activity',
         progress: 'Progress',
         personal: 'Personal',
+        diary_food: 'Food Diary',
+        diary_activity: 'Activity Diary',
     },
     en:{
         password:"Password",
@@ -32,6 +34,8 @@ const Lang = new LocalizedStrings({
         activity: 'Activity',
         progress: 'Progress',
         personal: 'Personal',
+        diary_food: 'Food Diary',
+        diary_activity: 'Activity Diary',
     },
     de: {
         password:"Passwort",
@@ -48,6 +52,8 @@ const Lang = new LocalizedStrings({
         activity: 'Aktivität',
         progress: 'Fortschritt',
         personal: 'Persönlich',
+        diary_food: 'Ernährungstagebuch',
+        diary_activity: 'Aktivitätstagebuch',
 
     },
     ru: {
@@ -65,6 +71,8 @@ const Lang = new LocalizedStrings({
         activity: 'Активность',
         progress: 'Прогресс',
         personal: 'Персональная',
+        diary_food: 'Дневник питания',
+        diary_activity: 'Дневник активности',
     }
 });
 

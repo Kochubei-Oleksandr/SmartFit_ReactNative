@@ -63,10 +63,8 @@ class Login extends Component {
         });
 
         return (
-
             <WallpaperUI>
                 <View style={styles.container}>
-
                     <TextInputUI
                         fieldName={'email'}
                         source={EMAIL_IMG}
@@ -88,7 +86,6 @@ class Login extends Component {
                         formErrors={this.props.formErrors}
                         changeInput={(password) => this.setState({password})}
                     />
-
                     <ButtonsUI
                         btnName={Lang.submit}
                         onclick={() => this.login()}
@@ -101,7 +98,6 @@ class Login extends Component {
                     </View>
                 </View>
             </WallpaperUI>
-
         );
     }
 }

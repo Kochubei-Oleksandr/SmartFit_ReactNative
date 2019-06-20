@@ -108,9 +108,6 @@ const DashboardTabNavigator = createBottomTabNavigator(
 const AppStack = createStackNavigator(
     {
         DashboardTabNavigator: { screen: DashboardTabNavigator },
-        Diary: { screen: Diary },
-        Trainers: { screen: Trainers },
-        Plans: { screen: FoodPlans },
     },
     {
         defaultNavigationOptions: {

@@ -25,7 +25,6 @@ class ResetPassword extends Component {
                 }
             })
     };
-
     componentDidMount() {
         this.props.changeStore(STATE_KEY.formErrors, {});
         AsyncStorage.getItem("mob_token").then((value) => {
@@ -57,10 +56,8 @@ class ResetPassword extends Component {
         });
 
         return (
-
             <WallpaperUI>
                 <View style={styles.container}>
-
                     <TextInputUI
                         fieldName={'email'}
                         source={EMAIL_IMG}
@@ -71,7 +68,6 @@ class ResetPassword extends Component {
                         formErrors={this.props.formErrors}
                         changeInput={(email) => this.setState({email})}
                     />
-
                     <ButtonsUI
                         btnName={Lang.submit}
                         onclick={() => this.resetPassword()}
@@ -79,7 +75,6 @@ class ResetPassword extends Component {
                     />
                 </View>
             </WallpaperUI>
-
         );
     }
 }
