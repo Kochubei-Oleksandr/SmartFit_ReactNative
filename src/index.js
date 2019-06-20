@@ -19,7 +19,10 @@ export * from './components/diary/Diary';
 export * from './components/diary/DiaryFood';
 export * from './components/diary/DiaryActivity';
 export * from './components/trainers/Trainers';
-export * from './components/plans/Plans';
+export * from './components/foodPlans/foodPlans';
+export * from './components/activityPlans/activityPlans';
+export * from './components/profile/Profile';
+export * from './components/progress/Progress';
 
 //Add components UI
 export * from './ui/textInput/TextInput';

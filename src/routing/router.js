@@ -1,6 +1,7 @@
 import React from 'react';
 import { createSwitchNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
-import { RegisterConnect, Diary, Trainers, Plans, Lang, LoginConnect, ResetPasswordConnect} from '../index';
+import { RegisterConnect, Diary, Trainers, FoodPlans, ActivityPlans,
+    Profile, Progress, Lang, LoginConnect, ResetPasswordConnect} from '../index';
 
 const AuthStack = createStackNavigator(
     {
@@ -39,6 +40,10 @@ const AuthStack = createStackNavigator(
 const DashboardTabNavigator = createBottomTabNavigator({
     Diary,
     Trainers,
+    FoodPlans,
+    ActivityPlans,
+    Progress,
+    Profile
 });
 
 const AppStack = createStackNavigator(
@@ -46,7 +51,7 @@ const AppStack = createStackNavigator(
         DashboardTabNavigator: { screen: DashboardTabNavigator },
         Diary: { screen: Diary },
         Trainers: { screen: Trainers },
-        Plans: { screen: Plans },
+        Plans: { screen: FoodPlans },
     },
     {
         defaultNavigationOptions: {
