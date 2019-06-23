@@ -18,6 +18,13 @@ const Lang = new LocalizedStrings({
         personal: 'Personal',
         diary_food: 'Food Diary',
         diary_activity: 'Activity Diary',
+        selectedDate: 'Selected date:',
+        foodName: 'Product Name',
+        time: 'Time',
+        kcal: 'Kcal',
+        weightPortion: 'Portion Weight',
+        close: 'Close',
+        save: 'Save',
     },
     de: {
         password:"Passwort",
@@ -36,7 +43,13 @@ const Lang = new LocalizedStrings({
         personal: 'Persönlich',
         diary_food: 'Ernährungstagebuch',
         diary_activity: 'Aktivitätstagebuch',
-
+        selectedDate: 'Ausgewähltes Datum:',
+        foodName: 'Produktname',
+        time: 'Zeit',
+        kcal: 'Kcal',
+        weightPortion: 'Portionsgewicht',
+        close: 'Schließen',
+        save: 'Speichern',
     },
     ru: {
         password:"Пароль",
@@ -55,6 +68,13 @@ const Lang = new LocalizedStrings({
         personal: 'Персональная',
         diary_food: 'Дневник питания',
         diary_activity: 'Дневник активности',
+        selectedDate: 'Выбранная дата:',
+        foodName: 'Название продукта',
+        time: 'Время',
+        kcal: 'Ккал',
+        weightPortion: 'Вес порции',
+        close: 'Закрыть',
+        save: 'Сохранить',
     }
 });
 

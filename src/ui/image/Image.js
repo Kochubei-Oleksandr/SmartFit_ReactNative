@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import {W} from '../../index';
 
 const ImageUI = ({source}) => {
     const styles = StyleSheet.create({
@@ -37,6 +38,20 @@ const TouchableImageUI = ({source, onclick}) => {
         >
             <Image source={source} style={styles.inlineImg} />
         </TouchableOpacity>
+    )
+};
+
+export const RecipeImageUI = ({source}) => {
+    const styles = StyleSheet.create({
+        img: {
+            zIndex: 99,
+            width: W,
+            height: 300,
+        },
+    });
+
+    return (
+        <Image source={source} style={styles.img} />
     )
 };
 

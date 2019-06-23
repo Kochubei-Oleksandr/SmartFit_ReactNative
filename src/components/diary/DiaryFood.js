@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import {connect} from 'react-redux';
 import {L_GREY, NORMAL_DATE, DiaryUserStatistics, DatePicker, H, W, Tables, STATE_KEY,
-    CLIENT_API, actionApp, changeStore, ActivityIndicatorUI} from '../../index';
+    CLIENT_API, actionApp, changeStore, ActivityIndicatorUI, Lang} from '../../index';
 
 class DiaryFood extends Component {
     state = {
@@ -57,8 +57,9 @@ class DiaryFood extends Component {
         });
         return (
             <View style={styles.container}>
+
                 <View style={styles.containerDateTop}>
-                    <Text style={styles.textTopDate}>Выбранная дата: {this.state.date}</Text>
+                    <Text style={styles.textTopDate}>{Lang.selectedDate} {this.state.date}</Text>
                     <DatePicker date={this.state.date} changeDate={(date) => this.setDate(date)} />
                 </View>
 
@@ -66,9 +67,14 @@ class DiaryFood extends Component {
 
                 {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
 
-                <View>
-                    <Tables data={this.props.userEatenFood}/>
-                </View>
+                <Tables
+                    data={this.props.userEatenFood}
+                    firstColName={Lang.foodName}
+                    secondColName={Lang.time}
+                    thirdColName={Lang.kcal}
+                    fourthColName={'X'}
+                />
+
             </View>
         );
     }

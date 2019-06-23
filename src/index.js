@@ -49,6 +49,7 @@ export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';
 export * from './helperComponents/tables/Tables';
+export * from './helperComponents/modals/Modals';
 
 //Add UI components
 export * from './ui/textInput/TextInput';

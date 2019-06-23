@@ -1,19 +1,25 @@
 import React, {Component} from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {D_GREY, W} from "../../index";
+import {Modals} from "../modals/Modals";
 
 export class Tables extends Component {
+    state = {
+        isShowModal: false,
+        selectedItem: null,
+    };
+    openModal = (data) => {
+        this.setState({ selectedItem: data });
+        this.setState({ isShowModal: true });
+    };
+    closeModal = () => {
+        this.setState({ isShowModal: false });
+    };
+
     render() {
         const styles = StyleSheet.create({
             tableHeader: {
                 marginTop: 20,
-                width: W - 20,
-                flexDirection:'row',
-                flexWrap:'wrap',
-                backgroundColor: D_GREY,
-                textAlign: 'center',
-            },
-            tableMain: {
                 width: W - 20,
                 flexDirection:'row',
                 flexWrap:'wrap',
@@ -47,6 +53,42 @@ export class Tables extends Component {
                 textAlign: 'center',
                 width: '10%'
             },
+        });
+        return (
+            <View>
+                <View style={styles.tableHeader}>
+                    <Text style={styles.firstColHeader}>{this.props.firstColName}</Text>
+                    <Text style={styles.secondColHeader}>{this.props.secondColName}</Text>
+                    <Text style={styles.thirdColHeader}>{this.props.thirdColName}</Text>
+                    <Text style={styles.fourthColHeader}>{this.props.fourthColName}</Text>
+                </View>
+
+                <TableFoodDiary
+                    data={this.props.data}
+                    openModal={(data) => this.openModal(data)}
+                />
+
+                <Modals
+                    showModal={this.state.isShowModal}
+                    closeModal={this.closeModal}
+                    data={this.state.selectedItem}
+                />
+
+            </View>
+        );
+    }
+}
+
+class TableFoodDiary extends Component {
+    render() {
+        const styles = StyleSheet.create({
+            tableMain: {
+                width: W - 20,
+                flexDirection:'row',
+                flexWrap:'wrap',
+                backgroundColor: D_GREY,
+                textAlign: 'center',
+            },
             firstColMain: {
                 borderBottomWidth: 2,
                 borderLeftWidth: 2,
@@ -79,16 +121,12 @@ export class Tables extends Component {
         });
         return (
             <View>
-                <View style={styles.tableHeader}>
-                    <Text style={styles.firstColHeader}>Название продукта</Text>
-                    <Text style={styles.secondColHeader}>Время</Text>
-                    <Text style={styles.thirdColHeader}>Ккал</Text>
-                    <Text style={styles.fourthColHeader}>X</Text>
-                </View>
                 {this.props.data.map((data, i) => {
                     return (
                         <View key={i} style={styles.tableMain}>
-                            <Text style={styles.firstColMain}>{data.name_food}</Text>
+                            <TouchableOpacity style={styles.firstColMain} onPress = {() => this.props.openModal(data)}>
+                                <Text>{data.name_food}</Text>
+                            </TouchableOpacity>
                             <Text style={styles.secondColMain}>{data.time}</Text>
                             <Text style={styles.thirdColMain}>{data.kkal_summ}</Text>
                             <Text style={styles.fourthColMain}>X</Text>

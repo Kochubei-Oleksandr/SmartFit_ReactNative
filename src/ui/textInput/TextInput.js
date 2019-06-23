@@ -49,4 +49,52 @@ export class TextInputUI extends Component {
     }
 }
 
+export class BasicTextInputUI extends Component {
+    render() {
+        const styles = StyleSheet.create({
+            input: {
+                backgroundColor: '#554',
+                // width: W - 40,
+                height: 40,
+                marginHorizontal: 10,
+                marginVertical: 10,
+                // paddingLeft: 45,
+                // borderRadius: 20,
+                color: '#000',
+            },
+            container: {
+                // width: W - 40,
+                // flex: 1,
+                // flexDirection: 'row',
+                // justifyContent: 'flex-start',
+                // alignItems: 'stretch',
+            },
+            inlineText: {
+
+            },
+        });
+        const checkError = (field) => {
+            if (this.props.formErrors) {
+                return this.props.formErrors.hasOwnProperty(field) ? this.props.formErrors[field] : null;
+            }
+        };
+        return (
+            <View style={styles.container}>
+                <Text style={styles.inlineText}>{this.props.placeholder}</Text>
+                <TextInput
+                    style={styles.input}
+                    defaultValue={this.props.defaultValue.toString()}
+                    autoCorrect={this.props.autoCorrect}
+                    autoCapitalize={this.props.autoCapitalize}
+                    returnKeyType={this.props.returnKeyType}
+                    keyboardType={this.props.keyboardType}
+                    placeholderTextColor="#000"
+                    underlineColorAndroid="transparent"
+                    onChangeText = {this.props.changeInput}
+                />
+                {checkError(this.props.fieldName) ? <Text>{checkError(this.props.fieldName)}</Text> : null}
+            </View>
+        );
+    }
+}
 

@@ -9,6 +9,8 @@ const INITIAL_STATE = {
     logicSuccess: '',
     //Все съеденные продукты пользователя в дневнике
     userEatenFood: [],
+    //список базовой информации по рецепту
+    basicRecipeInfo: [],
 };
 
 const STATE_KEY = {};
