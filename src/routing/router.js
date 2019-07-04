@@ -1,6 +1,6 @@
 import React from 'react';
 import { createSwitchNavigator, createStackNavigator, createAppContainer, createBottomTabNavigator } from 'react-navigation';
-import { RegisterConnect, Diary, Trainers, FoodPlans, ActivityPlans, ImageUI, D_BLUE,
+import { RegisterConnect, DiaryConnect, Trainers, FoodPlans, ActivityPlans, ImageUI, D_BLUE,
     Profile, Progress, Lang, LoginConnect, ResetPasswordConnect} from '../index';
 import { TRAINERS_IMG, TRAINERS_BLUE_IMG, DIARY_IMG, DIARY_BLUE_IMG, FOOD_IMG, FOOD_BLUE_IMG,
     ACTIVITY_IMG, ACTIVITY_BLUE_IMG, PERSONAL_IMG, PERSONAL_BLUE_IMG, PROGRESS_IMG, PROGRESS_BLUE_IMG } from '../index';
@@ -43,7 +43,7 @@ const AuthStack = createStackNavigator(
 const DashboardTabNavigator = createBottomTabNavigator(
     {
         Diary: {
-            screen: Diary,
+            screen: DiaryConnect,
             navigationOptions: {
                 tabBarLabel: Lang.diary,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
