@@ -43,8 +43,6 @@ export * from './components/profile/Profile';
 export * from './components/progress/Progress';
 
 //Add Helper components
-export * from './components/diary/DiaryFood';
-export * from './components/diary/DiaryActivity';
 export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';

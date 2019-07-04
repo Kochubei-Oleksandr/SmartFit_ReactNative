@@ -78,12 +78,19 @@ export class BasicTextInputUI extends Component {
                 return this.props.formErrors.hasOwnProperty(field) ? this.props.formErrors[field] : null;
             }
         };
+        const defaultValue = () => {
+            if (this.props.defaultValue === null || this.props.defaultValue === undefined) {
+                return '';
+            } else {
+                return this.props.defaultValue.toString();
+            }
+        };
         return (
             <View style={styles.container}>
                 <Text style={styles.inlineText}>{this.props.placeholder}</Text>
                 <TextInput
                     style={styles.input}
-                    defaultValue={this.props.defaultValue.toString()}
+                    defaultValue={defaultValue()}
                     autoCorrect={this.props.autoCorrect}
                     autoCapitalize={this.props.autoCapitalize}
                     returnKeyType={this.props.returnKeyType}

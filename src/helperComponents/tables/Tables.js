@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {D_GREY, W, Modals} from "../../index";
 import {TableFoodDiary} from './'
+import {TableActivityDiary} from "./TableActivityDiary";
 
 export class Tables extends Component {
     state = {
@@ -62,16 +63,39 @@ export class Tables extends Component {
                     <Text style={styles.fourthColHeader}>{this.props.fourthColName}</Text>
                 </View>
 
-                <TableFoodDiary
-                    data={this.props.data}
-                    openModal={(data) => this.openModal(data)}
-                />
+                { this.props.tableFoodDiary ?
+                    <View>
+                        <TableFoodDiary
+                            data={this.props.data}
+                            openModal={(data) => this.openModal(data)}
+                        />
+                        <Modals
+                            modalsFoodDiary={true}
+                            showModal={this.state.isShowModal}
+                            closeModal={this.closeModal}
+                            selectedItem={this.state.selectedItem}
+                        />
+                    </View>
+                    :
+                    null
+                }
 
-                <Modals
-                    showModal={this.state.isShowModal}
-                    closeModal={this.closeModal}
-                    selectedItem={this.state.selectedItem}
-                />
+                { this.props.tableActivityDiary ?
+                    <View>
+                        <TableActivityDiary
+                            data={this.props.data}
+                            openModal={(data) => this.openModal(data)}
+                        />
+                        <Modals
+                            modalsActivityDiary={true}
+                            showModal={this.state.isShowModal}
+                            closeModal={this.closeModal}
+                            selectedItem={this.state.selectedItem}
+                        />
+                    </View>
+                    :
+                    null
+                }
 
             </View>
         );

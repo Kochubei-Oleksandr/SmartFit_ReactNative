@@ -12,6 +12,8 @@ const INITIAL_STATE = {
     userEatenFood: [],
     //список базовой информации по рецепту
     basicRecipeInfo: [],
+    //Все выполненные активности пользователя в дневнике
+    userCompletedActivity: [],
 };
 
 const STATE_KEY = {};

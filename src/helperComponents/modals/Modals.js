@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Modal, Text, TouchableHighlight, View} from 'react-native';
 import {Lang} from "../../index";
-import {ModalsFoodDiaryConnect} from "./";
+import {ModalsFoodDiaryConnect, ModalsActivityDiaryConnect} from "./";
 
 export class Modals extends Component {
     render() {
@@ -16,7 +16,11 @@ export class Modals extends Component {
                         <Text style={{textAlign: 'right'}}>{Lang.close}</Text>
                     </TouchableHighlight>
 
-                    <ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} />
+                    { this.props.modalsFoodDiary ? <ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} /> : null }
+
+                    { this.props.modalsActivityDiary ? <ModalsActivityDiaryConnect selectedItem={this.props.selectedItem} /> : null }
+
+                    {/*<ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} />*/}
 
                 </Modal>
             </View>

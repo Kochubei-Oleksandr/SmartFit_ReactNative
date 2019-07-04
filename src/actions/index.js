@@ -8,27 +8,13 @@ export const actionApp = (params, method, url, type) => async dispatch => {
     params.mob_token = await AsyncStorage.getItem('mob_token');
     let success = null;
 
-
-    // console.log(params);
-
-
     await axios({ method: method, url: url, params})
         .then(response => {
-
-
-            // console.log(response.data);
-
-
             success = true;
             dispatch({ type: type, payload: response.data });
             dispatch({ type: STATE_KEY.formErrors, payload: {} });
         })
         .catch(error => {
-
-
-            // console.log(error);
-
-
             success = false;
             if (error.response.status === 422) {
                 dispatch({ type: STATE_KEY.formErrors, payload: error.response.data.errors });

@@ -30,6 +30,13 @@ const Lang = new LocalizedStrings({
         fat: 'Fat (g)',
         carbohydrates: 'Carbohydrate (g)',
         water: 'Water (g)',
+        activityName: 'Activity name',
+        numberApproaches: 'Number of approaches*',
+        timeOneExercise: 'Time to complete the approach*',
+        numberOfRepetitions: 'Number of repetitions',
+        restNextToApproach: 'Rest time to next approach',
+        burdenWeight: 'Burden weight',
+
     },
     de: {
         password:"Passwort",
@@ -60,6 +67,12 @@ const Lang = new LocalizedStrings({
         fat: "Fett (g)",
         carbohydrates: "Kohlenhydrate (g)",
         water: "Wasser (g)",
+        activityName: 'Aktivitätsname',
+        numberApproaches: 'Anzahl Ansätze*',
+        timeOneExercise: 'Zeit für den Abschluss des Ansatzes*',
+        numberOfRepetitions: 'Anzahl der Wiederholungen',
+        restNextToApproach: 'Ruhezeit bis zum nächsten ansatz',
+        burdenWeight: 'Belasten Sie Gewicht',
     },
     ru: {
         password:"Пароль",
@@ -90,6 +103,12 @@ const Lang = new LocalizedStrings({
         fat: 'Жиры (г)',
         carbohydrates: 'Углеводы (г)',
         water: 'Вода (г)',
+        activityName: 'Название активности',
+        numberApproaches: 'Количество подходов*',
+        timeOneExercise: 'Время на выполнение подхода*',
+        numberOfRepetitions: 'Количество повторений',
+        restNextToApproach: 'Время отдыха до след. подхода',
+        burdenWeight: 'Вес отягощения',
     }
 });
 

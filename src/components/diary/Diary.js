@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
-import {
-    HeaderUI, DiaryActivity, DiaryFood, Lang, DatePicker, ActivityIndicatorUI,
-    NORMAL_DATE, CLIENT_API, STATE_KEY, W, actionApp, changeStore, H, L_GREY
-} from '../../index';
+import {HeaderUI, Tables, Lang, DatePicker, ActivityIndicatorUI, DiaryUserStatistics,
+    NORMAL_DATE, CLIENT_API, STATE_KEY, W, actionApp, changeStore, H, L_GREY} from '../../index';
 
 class Diary extends Component {
     state = {
@@ -26,10 +24,12 @@ class Diary extends Component {
         let date = new Date();
         this.setState({ date: NORMAL_DATE(date) });
         this.getProducts(NORMAL_DATE(date));
+        this.getActivities(NORMAL_DATE(date));
     };
     setDate = date => {
         this.setState({ date: NORMAL_DATE(date) });
         this.getProducts(NORMAL_DATE(date));
+        this.getActivities(NORMAL_DATE(date));
     };
     getProducts = (date) => {
         this.setState({isLoggedIn: true});
@@ -40,6 +40,18 @@ class Diary extends Component {
             'get',
             CLIENT_API + '/user-food',
             STATE_KEY.userEatenFood
+        )
+            .then(() => { this.setState({isLoggedIn: false}) });
+    };
+    getActivities = (date) => {
+        this.setState({isLoggedIn: true});
+        this.props.actionApp(
+            {
+                date: date,
+            },
+            'get',
+            CLIENT_API + '/user-activity',
+            STATE_KEY.userCompletedActivity
         )
             .then(() => { this.setState({isLoggedIn: false}) });
     };
@@ -81,9 +93,29 @@ class Diary extends Component {
                         <DatePicker date={this.state.date} changeDate={(date) => this.setDate(date)} />
                     </View>
 
+                    <DiaryUserStatistics />
+
                     {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
 
-                    { this.state.isLeftBtn ? <DiaryFood userEatenFood={this.props.userEatenFood} /> : <DiaryActivity /> }
+                    { this.state.isLeftBtn ?
+                        <Tables
+                            tableFoodDiary={true}
+                            data={this.props.userEatenFood}
+                            firstColName={Lang.foodName}
+                            secondColName={Lang.time}
+                            thirdColName={Lang.kcal}
+                            fourthColName={'X'}
+                        />
+                        :
+                        <Tables
+                            tableActivityDiary={true}
+                            data={this.props.userCompletedActivity}
+                            firstColName={Lang.activityName}
+                            secondColName={Lang.time}
+                            thirdColName={Lang.kcal}
+                            fourthColName={'X'}
+                        />
+                    }
                 </View>
             </ScrollView>
         );
@@ -91,7 +123,8 @@ class Diary extends Component {
 }
 
 const mapStateToProps = state => ({
-    userEatenFood: state.userEatenFood
+    userEatenFood: state.userEatenFood,
+    userCompletedActivity: state.userCompletedActivity
 });
 
 const DiaryConnect = connect(mapStateToProps, {actionApp, changeStore})(Diary);

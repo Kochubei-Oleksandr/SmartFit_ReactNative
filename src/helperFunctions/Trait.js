@@ -20,3 +20,35 @@ if (Lang._language === 'ru') {
     lang = 'english';
 }
 export const LANG_NOW = lang;
+
+/**
+ * Добавляю или удаляю последний элемент массива, чтобы количество подходов равнялось
+ * количеству форм для внесения количества повторений и веса отягощения
+ * @param repetitions
+ * @param val
+ * @returns {*}
+ * @constructor
+ */
+export const CHANGE_REPETITIONS = (id, repetitions, val) => {
+    if (repetitions !== 0) {
+        if (repetitions.length > val && val >= 1) {
+            while (repetitions.length > val) {
+                repetitions.pop();
+            }
+        }
+        if (repetitions.length < val) {
+            while (repetitions.length < val) {
+                let iter = Object.assign({}, repetitions[repetitions.length - 1]);
+
+                iter.id = null;
+                iter.approach_number = repetitions.length + 1;
+                iter.id_one_approach = id;
+                iter.number_of_repetitions = 0;
+                iter.weight = 0;
+
+                repetitions.push(iter);
+            }
+        }
+    }
+    return repetitions
+};
