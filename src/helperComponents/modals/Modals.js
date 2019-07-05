@@ -20,8 +20,6 @@ export class Modals extends Component {
 
                     { this.props.modalsActivityDiary ? <ModalsActivityDiaryConnect selectedItem={this.props.selectedItem} /> : null }
 
-                    {/*<ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} />*/}
-
                 </Modal>
             </View>
         );

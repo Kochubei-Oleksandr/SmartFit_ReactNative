@@ -1,8 +1,29 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
-import {D_GREY, W} from "../../index";
+import {connect} from 'react-redux';
+import {actionApp, changeStore, D_GREY, W, ActivityIndicatorUI, CLIENT_API, STATE_KEY} from "../../index";
 
-export class TableActivityDiary extends Component {
+class TableActivityDiary extends Component {
+    state = {
+        isLoggedIn: false
+    };
+    deleteDiaryActivity = (data) => {
+        this.setState({isLoggedIn: true});
+        this.props.actionApp(
+            {
+                date: data.date,
+                id: data.id
+            },
+            'delete',
+            CLIENT_API + '/user-activity',
+            STATE_KEY.userCompletedActivity
+        )
+            .then(success => {
+                if (success === true) {
+                    this.setState({isLoggedIn: false});
+                }
+            })
+    };
     render() {
         const styles = StyleSheet.create({
             tableMain: {
@@ -41,9 +62,14 @@ export class TableActivityDiary extends Component {
                 textAlign: 'center',
                 width: '10%'
             },
+            textAlign: {
+                textAlign: 'center',
+            }
         });
         return (
             <View>
+                {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
+
                 {this.props.data.map((data, i) => {
                     return (
                         <View key={i} style={styles.tableMain}>
@@ -52,7 +78,9 @@ export class TableActivityDiary extends Component {
                             </TouchableOpacity>
                             <Text style={styles.secondColMain}>{data.time}</Text>
                             <Text style={styles.thirdColMain}>{data.kkal_lost}</Text>
-                            <Text style={styles.fourthColMain}>X</Text>
+                            <TouchableOpacity style={styles.fourthColMain} onPress = {() => this.deleteDiaryActivity(data)}>
+                                <Text style={styles.textAlign}>X</Text>
+                            </TouchableOpacity>
                         </View>
                     );
                 })}
@@ -60,3 +88,5 @@ export class TableActivityDiary extends Component {
         );
     }
 }
+
+export const TableActivityDiaryConnect = connect(null, {actionApp, changeStore})(TableActivityDiary);

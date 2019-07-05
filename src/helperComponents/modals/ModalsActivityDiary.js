@@ -16,7 +16,6 @@ class ModalsActivityDiary extends Component {
         id: null
     };
     componentDidMount() {
-        console.log(this.props.userCompletedActivity[this.props.selectedItem].repetitions);
         if (this.props.selectedItem !== null && this.props.selectedItem !== undefined) {
             this.setState({
                 time: this.props.userCompletedActivity[this.props.selectedItem].time,
@@ -178,6 +177,4 @@ const mapStateToProps = state => ({
     formErrors: state.formErrors,
 });
 
-const ModalsActivityDiaryConnect = connect(mapStateToProps, {actionApp, changeStore})(ModalsActivityDiary);
-
-export {ModalsActivityDiaryConnect}
+export const ModalsActivityDiaryConnect = connect(mapStateToProps, {actionApp, changeStore})(ModalsActivityDiary);

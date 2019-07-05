@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
 import {D_GREY, W, Modals} from "../../index";
-import {TableFoodDiary} from './'
-import {TableActivityDiary} from "./TableActivityDiary";
+import {TableFoodDiaryConnect, TableActivityDiaryConnect} from './'
 
 export class Tables extends Component {
     state = {
@@ -65,7 +64,7 @@ export class Tables extends Component {
 
                 { this.props.tableFoodDiary ?
                     <View>
-                        <TableFoodDiary
+                        <TableFoodDiaryConnect
                             data={this.props.data}
                             openModal={(data) => this.openModal(data)}
                         />
@@ -82,7 +81,7 @@ export class Tables extends Component {
 
                 { this.props.tableActivityDiary ?
                     <View>
-                        <TableActivityDiary
+                        <TableActivityDiaryConnect
                             data={this.props.data}
                             openModal={(data) => this.openModal(data)}
                         />
