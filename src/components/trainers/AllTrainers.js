@@ -1,19 +1,26 @@
 import React, {Component} from 'react';
 import {ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import {Lang, BasicTextInputUI, Card, CLIENT_API, STATE_KEY, actionApp, changeStore} from "../../index";
+import {Lang, BasicTextInputUI, Card, CLIENT_API, STATE_KEY, actionApp, changeStore, ActivityIndicatorUI} from "../../index";
 
 class AllTrainers extends Component {
     state = {
         isLeftBtn: true,
         isRightBtn: false,
-        isLoggedIn: false
+        isLoggedIn: false,
+        search: null,
     };
-    searchByNickname = (nickname) => {
+    componentDidMount() {
+        this.searchByNickname();
+    };
+    setSearch = (nickname) => {
+        this.setState({search: nickname}, () => this.searchByNickname());
+    };
+    searchByNickname = () => {
         this.setState({isLoggedIn: true});
         this.props.actionApp(
             {
-                search: nickname
+                search: this.state.search
             },
             'get',
             CLIENT_API + '/search-trainers',
@@ -25,9 +32,23 @@ class AllTrainers extends Component {
                 }
             })
     };
-    componentDidMount() {
-        this.searchByNickname();
-    }
+    subscribeAction = (idTrainer) => {
+        this.setState({isLoggedIn: true});
+        this.props.actionApp(
+            {
+                search: this.state.search,
+                id_trainer: idTrainer,
+            },
+            'post',
+            CLIENT_API + '/search-trainers',
+            STATE_KEY.trainerStack
+        )
+            .then(success => {
+                if (success === true) {
+                    this.setState({isLoggedIn: false});
+                }
+            })
+    };
     render() {
         return (
             <ScrollView>
@@ -38,12 +59,19 @@ class AllTrainers extends Component {
                     returnKeyType={'done'}
                     autoCorrect={false}
                     formErrors={this.props.formErrors}
-                    changeInput={(nickname) => this.searchByNickname(nickname)}
+                    changeInput={(nickname) => this.setSearch(nickname)}
                 />
+
+                {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
 
                 {this.props.trainerStack.map((data, i) => {
                     return (
-                        <Card key={i} data={data} />
+                        <Card
+                            actionName={Lang.subscribe}
+                            actionCard={(idTrainer) => this.subscribeAction(idTrainer)}
+                            key={i}
+                            data={data}
+                        />
                     );
                 })}
             </ScrollView>

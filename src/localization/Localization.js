@@ -39,6 +39,8 @@ const Lang = new LocalizedStrings({
         searchNickName: 'Search by nickname',
         allTrainers: 'All trainers',
         myTrainers: 'My trainers',
+        subscribe: 'Subscribe',
+        unsubscribe: 'Unsubscribe',
 
     },
     de: {
@@ -79,6 +81,9 @@ const Lang = new LocalizedStrings({
         searchNickName: 'Suche nach Spitznamen',
         allTrainers: "Alle trainer",
         myTrainers: 'Meine trainer',
+        subscribe: 'Abonnieren',
+        unsubscribe: 'Abbestellen',
+
     },
     ru: {
         password:"Пароль",
@@ -118,6 +123,8 @@ const Lang = new LocalizedStrings({
         searchNickName: 'Поиск по псевдониму',
         allTrainers: 'Все тренера',
         myTrainers: 'Мои тренера',
+        subscribe: 'Подписаться',
+        unsubscribe: 'Отписаться',
 
     }
 });

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {D_GREY, W, TrainerAvatarImageUI} from '../../index';
 
 export class Card extends Component {
@@ -32,6 +32,9 @@ export class Card extends Component {
                 </View>
                 <View style={styles.itemRight}>
                     <Text>{this.props.data.name} {this.props.data.lastname} {this.props.data.nickname}</Text>
+                    <TouchableOpacity onPress = {() => this.props.actionCard(this.props.data.id)}>
+                        <Text>{this.props.actionName}</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
