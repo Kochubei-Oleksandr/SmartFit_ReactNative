@@ -14,6 +14,10 @@ const INITIAL_STATE = {
     basicRecipeInfo: [],
     //Все выполненные активности пользователя в дневнике
     userCompletedActivity: [],
+    //Список всех тренеров, на которых подписан пользователь
+    trainerUsersStack: [],
+    //Список всех тренеров, которые есть на сервисе
+    trainerStack: [],
 };
 
 const STATE_KEY = {};

@@ -36,6 +36,9 @@ const Lang = new LocalizedStrings({
         numberOfRepetitions: 'Number of repetitions',
         restNextToApproach: 'Rest time to next approach',
         burdenWeight: 'Burden weight',
+        searchNickName: 'Search by nickname',
+        allTrainers: 'All trainers',
+        myTrainers: 'My trainers',
 
     },
     de: {
@@ -73,6 +76,9 @@ const Lang = new LocalizedStrings({
         numberOfRepetitions: 'Anzahl der Wiederholungen',
         restNextToApproach: 'Ruhezeit bis zum nächsten ansatz',
         burdenWeight: 'Belasten Sie Gewicht',
+        searchNickName: 'Suche nach Spitznamen',
+        allTrainers: "Alle trainer",
+        myTrainers: 'Meine trainer',
     },
     ru: {
         password:"Пароль",
@@ -109,6 +115,10 @@ const Lang = new LocalizedStrings({
         numberOfRepetitions: 'Количество повторений',
         restNextToApproach: 'Время отдыха до след. подхода',
         burdenWeight: 'Вес отягощения',
+        searchNickName: 'Поиск по псевдониму',
+        allTrainers: 'Все тренера',
+        myTrainers: 'Мои тренера',
+
     }
 });
 

@@ -13,12 +13,10 @@ class Diary extends Component {
         isLoggedIn: false
     };
     clickLeftBtn() {
-        this.setState({isLeftBtn: true});
-        this.setState({isRightBtn: false});
+        this.setState({isLeftBtn: true, isRightBtn: false});
     }
     clickRightBtn() {
-        this.setState({isLeftBtn: false});
-        this.setState({isRightBtn: true});
+        this.setState({isLeftBtn: false, isRightBtn: true});
     }
     componentDidMount() {
         let date = new Date();
@@ -127,6 +125,4 @@ const mapStateToProps = state => ({
     userCompletedActivity: state.userCompletedActivity
 });
 
-const DiaryConnect = connect(mapStateToProps, {actionApp, changeStore})(Diary);
-
-export {DiaryConnect}
+export const DiaryConnect = connect(mapStateToProps, {actionApp, changeStore})(Diary);

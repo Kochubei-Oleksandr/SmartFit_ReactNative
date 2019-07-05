@@ -44,6 +44,7 @@ export * from './components/progress/Progress';
 
 //Add Helper components
 export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
+export * from './helperComponents/cards/Card';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';
 export * from './helperComponents/tables';

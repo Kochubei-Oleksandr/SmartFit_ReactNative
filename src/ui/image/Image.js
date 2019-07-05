@@ -41,7 +41,7 @@ const TouchableImageUI = ({source, onclick}) => {
     )
 };
 
-export const RecipeImageUI = ({source}) => {
+const RecipeImageUI = ({source}) => {
     const styles = StyleSheet.create({
         img: {
             zIndex: 99,
@@ -55,6 +55,20 @@ export const RecipeImageUI = ({source}) => {
     )
 };
 
-export { ImageUI, TouchableImageUI }
+const TrainerAvatarImageUI = ({source}) => {
+    const styles = StyleSheet.create({
+        img: {
+            zIndex: 99,
+            width: 100,
+            height: 100,
+        },
+    });
+
+    return (
+        <Image source={{uri: source}} style={styles.img} />
+    )
+};
+
+export { ImageUI, TouchableImageUI, RecipeImageUI, TrainerAvatarImageUI }
 
 

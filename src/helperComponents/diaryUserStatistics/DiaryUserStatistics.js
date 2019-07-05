@@ -7,7 +7,6 @@ export class DiaryUserStatistics extends Component {
         const styles = StyleSheet.create({
             containerInfoTop: {
                 width: W - 20,
-                height: 150,
                 padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
