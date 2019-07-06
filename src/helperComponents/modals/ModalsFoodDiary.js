@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { TextField } from 'react-native-material-textfield';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import { CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore,
@@ -68,26 +69,37 @@ class ModalsFoodDiary extends Component {
 
     render() {
         const styles = StyleSheet.create({
+            container: {
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+               
+            },
+
             title: {
                 textAlign: 'center',
                 fontSize: 18,
-                marginBottom: 10,
+                marginTop: 10,
+                marginBottom: 20,
                 color: '#000'
             },
             containerInfoTop: {
                 padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                backgroundColor: D_GREY,
+
             },
             textTopInfo: {
-                padding: 3,
+                padding: 5,
+                color: '#fff',
+                backgroundColor: 'rgba(66, 135, 245, 0.5)',
+                margin: 3,
+                borderRadius: 10
             },
         });
         return (
             <ScrollView>
                 <Text style={styles.title}>{this.props.userEatenFood[this.props.selectedItem].name_food}</Text>
-
                 <View style={styles.containerInfoTop}>
                     <View style={styles.textTopInfo}>
                         <Text>{Lang.date}: {this.props.userEatenFood[this.props.selectedItem].date}</Text>
@@ -103,6 +115,7 @@ class ModalsFoodDiary extends Component {
                     </View>
                 </View>
 
+<View style={styles.container}>
                 <BasicTextInputUI
                     fieldName={'time'}
                     placeholder={Lang.time}
@@ -124,6 +137,8 @@ class ModalsFoodDiary extends Component {
                     formErrors={this.props.formErrors}
                     changeInput={(weight) => this.changeWeight(weight)}
                 />
+</View>
+
 
                 {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
 
