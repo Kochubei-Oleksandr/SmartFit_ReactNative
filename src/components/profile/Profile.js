@@ -1,31 +1,35 @@
-import React, {Component} from 'react'
-import {StyleSheet, Text, View} from 'react-native'
+import React, {Component} from 'react';
+import {StyleSheet, ScrollView, View} from 'react-native';
+import {H, L_GREY, Lang, W} from "../../index";
 
 export class Profile extends Component {
+    state = {
+        isLoggedIn: false
+    };
     render() {
+        const styles = StyleSheet.create({
+            container: {
+                width: W,
+                flex: 1,
+                backgroundColor: L_GREY,
+                minHeight: H,
+                alignItems: 'center',
+            }
+        });
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>Profile</Text>
-            </View>
+            <ScrollView>
+                <View style={styles.container}>
+                   <View>
+
+                   </View>
+                    <View>
+
+                    </View>
+                    <View>
+
+                    </View>
+                </View>
+            </ScrollView>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-    },
-    welcome: {
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    instructions: {
-        textAlign: 'center',
-        color: '#333333',
-        marginBottom: 5,
-    },
-});
