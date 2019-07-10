@@ -1,8 +1,14 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ProgressBarAndroid, StyleSheet, Text, View} from 'react-native';
 import {D_GREY, W} from '../../index';
 
 export class DiaryUserStatistics extends Component {
+
+    state = {
+        spendCal: 250,
+        total: 2500
+        }
+
     render() {
         const styles = StyleSheet.create({
             containerInfoTop: {
@@ -10,25 +16,85 @@ export class DiaryUserStatistics extends Component {
                 padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
+                justifyContent: 'space-between',
                 backgroundColor: D_GREY,
+
             },
-            textTopInfo: {
-                padding: 3,
+            containerBox: {
+                backgroundColor: '#fff',
+                padding: 5,
+                margin: 5
+            },
+            textCenter: {
+               textAlign: 'center'
             },
         });
         return (
             <View style={styles.containerInfoTop}>
-                <View style={styles.textTopInfo}>
-                    <Text>Съеденно: 250 из 2500 ккал</Text>
-                    <Text style={styles.textTopInfo}>Потрачено: 100 из 480 ккал</Text>
+                <View style={styles.containerBox}>
+                    <Text style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
                 </View>
-                <View style={styles.textTopInfo}>
-                    <Text>Белки: 30 из 180 грамм</Text>
-                    <Text>Жиры: 10 из 65 грамм</Text>
+
+                <View style={styles.containerBox}>
+                    <Text  style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
                 </View>
-                <View style={styles.textTopInfo}>
-                    <Text>Углеводы: 150 из 280 грамм</Text>
-                    <Text>Вода: 1060 из 3069 мл</Text>
+
+                <View style={styles.containerBox}>
+                    <Text  style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
+                </View>
+
+                <View style={styles.containerBox}>
+                    <Text  style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
+                </View>
+
+                <View style={styles.containerBox}>
+                    <Text  style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
+                </View>
+
+                <View style={styles.containerBox}>
+                    <Text  style={styles.textCenter}>Съеденно</Text>
+                    <ProgressBarAndroid
+                        styleAttr="Horizontal"
+                        indeterminate={false}
+                        progress={this.state.spendCal/this.state.total}
+                    />
+                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+
                 </View>
             </View>
         );

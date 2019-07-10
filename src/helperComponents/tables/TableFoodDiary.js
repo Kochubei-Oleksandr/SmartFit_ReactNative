@@ -30,35 +30,37 @@ class TableFoodDiary extends Component {
                 width: W - 20,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                backgroundColor: D_GREY,
+
                 textAlign: 'center',
+
+            },
+            tableColor: {
+                backgroundColor: '#fff',
+            },
+            tableColor2: {
+                backgroundColor: 'rgba(66, 135, 245, 0.5)',
             },
             firstColMain: {
-                borderBottomWidth: 2,
-                borderLeftWidth: 2,
-                borderRightWidth: 2,
+          
                 padding: 5,
-                width: '50%'
+                width: '50%',
+                borderColor: '#000'
             },
             secondColMain: {
-                borderBottomWidth: 2,
-                borderRightWidth: 2,
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                borderColor: '#000'
             },
             thirdColMain: {
-                borderBottomWidth: 2,
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                borderColor: '#000'
             },
             fourthColMain: {
-                borderBottomWidth: 2,
-                borderLeftWidth: 2,
-                borderRightWidth: 2,
                 padding: 5,
-                width: '10%'
+                width: '10%',
             },
             textAlign: {
                 textAlign: 'center',
@@ -70,7 +72,7 @@ class TableFoodDiary extends Component {
 
                 {this.props.data.map((data, i) => {
                     return (
-                        <View key={i} style={styles.tableMain}>
+                        <View key={i} style={[styles.tableMain, i % 2 === 0 ? styles.tableColor: styles.tableColor2]}>
                             <TouchableOpacity style={styles.firstColMain} onPress = {() => this.props.openModal(i)}>
                                 <Text>{data.name_food}</Text>
                             </TouchableOpacity>

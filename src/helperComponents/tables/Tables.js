@@ -22,32 +22,31 @@ export class Tables extends Component {
                 width: W - 20,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                backgroundColor: D_GREY,
                 textAlign: 'center',
+                fontWeight: '700',
+                backgroundColor: 'rgba(66, 135, 245, 0.5)',
             },
             firstColHeader: {
-                borderWidth: 2,
+
                 padding: 5,
                 textAlign: 'center',
-                width: '50%'
+                width: '50%',
+                fontWeight: '700'
             },
             secondColHeader: {
-                borderBottomWidth: 2,
-                borderTopWidth: 2,
-                borderRightWidth: 2,
+
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                fontWeight: '700'
             },
             thirdColHeader: {
-                borderBottomWidth: 2,
-                borderTopWidth: 2,
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                fontWeight: '700'
             },
             fourthColHeader: {
-                borderWidth: 2,
                 padding: 5,
                 textAlign: 'center',
                 width: '10%'

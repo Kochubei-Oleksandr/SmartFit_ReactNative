@@ -53,13 +53,14 @@ export class BasicTextInputUI extends Component {
     render() {
         const styles = StyleSheet.create({
             input: {
-                backgroundColor: '#554',
-                // width: W - 40,
+                display: 'flex',
+                backgroundColor: '#fff',
                 height: 40,
                 marginHorizontal: 10,
                 marginVertical: 10,
-                // paddingLeft: 45,
-                // borderRadius: 20,
+                padding: 5,
+                borderWidth:1,
+                borderRadius: 10,
                 color: '#000',
             },
             container: {
