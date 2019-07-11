@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { TextField } from 'react-native-material-textfield';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import { CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore,
