@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
+import { Container } from 'native-base';
 import {HeaderUI, Tables, Lang, DatePicker, ActivityIndicatorUI, DiaryUserStatistics,
     NORMAL_DATE, CLIENT_API, STATE_KEY, W, actionApp, changeStore, H, L_GREY} from '../../index';
 
@@ -77,44 +78,48 @@ class Diary extends Component {
         });
         return (
             <ScrollView>
-                <HeaderUI
-                    btnLeftName={Lang.diary_food}
-                    btnRightName={Lang.diary_activity}
-                    onclickLeft={() => this.clickLeftBtn()}
-                    onclickRight={() => this.clickRightBtn()}
-                    isLeftBtn={this.state.isLeftBtn}
-                />
+                <Container>
 
-                <View style={styles.container}>
-                    <View style={styles.containerDateTop}>
-                        <Text style={styles.textTopDate}>{Lang.selectedDate} {this.state.date}</Text>
-                        <DatePicker date={this.state.date} changeDate={(date) => this.setDate(date)} />
+                    <HeaderUI
+                        btnLeftName={Lang.diary_food}
+                        btnRightName={Lang.diary_activity}
+                        onclickLeft={() => this.clickLeftBtn()}
+                        onclickRight={() => this.clickRightBtn()}
+                        isLeftBtn={this.state.isLeftBtn}
+                    />
+
+                    <View style={styles.container}>
+                        <View style={styles.containerDateTop}>
+                            <Text style={styles.textTopDate}>{Lang.selectedDate} {this.state.date}</Text>
+                            <DatePicker date={this.state.date} changeDate={(date) => this.setDate(date)} />
+                        </View>
+
+                        <DiaryUserStatistics />
+
+                        {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
+
+                        { this.state.isLeftBtn ?
+                            <Tables
+                                tableFoodDiary={true}
+                                data={this.props.userEatenFood}
+                                firstColName={Lang.foodName}
+                                secondColName={Lang.time}
+                                thirdColName={Lang.kcal}
+                                fourthColName={'X'}
+                            />
+                            :
+                            <Tables
+                                tableActivityDiary={true}
+                                data={this.props.userCompletedActivity}
+                                firstColName={Lang.activityName}
+                                secondColName={Lang.time}
+                                thirdColName={Lang.kcal}
+                                fourthColName={'X'}
+                            />
+                        }
                     </View>
 
-                    <DiaryUserStatistics />
-
-                    {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
-
-                    { this.state.isLeftBtn ?
-                        <Tables
-                            tableFoodDiary={true}
-                            data={this.props.userEatenFood}
-                            firstColName={Lang.foodName}
-                            secondColName={Lang.time}
-                            thirdColName={Lang.kcal}
-                            fourthColName={'X'}
-                        />
-                        :
-                        <Tables
-                            tableActivityDiary={true}
-                            data={this.props.userCompletedActivity}
-                            firstColName={Lang.activityName}
-                            secondColName={Lang.time}
-                            thirdColName={Lang.kcal}
-                            fourthColName={'X'}
-                        />
-                    }
-                </View>
+                </Container>
             </ScrollView>
         );
     }
