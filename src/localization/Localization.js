@@ -41,6 +41,10 @@ const Lang = new LocalizedStrings({
         myTrainers: 'My trainers',
         subscribe: 'Subscribe',
         unsubscribe: 'Unsubscribe',
+        outOff: 'out of',
+        eaten: 'Eaten',
+        spent: 'Spent',
+        gram: 'Gram',
 
     },
     de: {
@@ -83,6 +87,11 @@ const Lang = new LocalizedStrings({
         myTrainers: 'Meine trainer',
         subscribe: 'Abonnieren',
         unsubscribe: 'Abbestellen',
+        outOff: 'aus',
+        eaten: 'Gegessen',
+        spent: 'Ausgegeben',
+        gram: 'Gramm',
+
 
     },
     ru: {
@@ -125,6 +134,10 @@ const Lang = new LocalizedStrings({
         myTrainers: 'Мои тренера',
         subscribe: 'Подписаться',
         unsubscribe: 'Отписаться',
+        outOff: 'из',
+        eaten: 'Съедено',
+        spent: 'Потрачено',
+        gram: 'Грамм',
 
     }
 });

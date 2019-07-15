@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {ScrollView, View, Text, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
-import { Container } from 'native-base';
-import {HeaderUI, Tables, Lang, DatePicker, ActivityIndicatorUI, DiaryUserStatistics,
-    NORMAL_DATE, CLIENT_API, STATE_KEY, W, actionApp, changeStore, H, L_GREY} from '../../index';
+import { Container, DatePicker } from 'native-base';
+import { HeaderUI, Tables, Lang, ActivityIndicatorUI, DiaryUserStatistics, D_BLUE,
+    NORMAL_DATE, CLIENT_API, STATE_KEY, W, actionApp, changeStore, H, L_GREY } from '../../index';
 
 class Diary extends Component {
     state = {
@@ -77,8 +77,8 @@ class Diary extends Component {
             }
         });
         return (
-            <ScrollView>
-                <Container>
+            <Container>
+                <ScrollView>
 
                     <HeaderUI
                         btnLeftName={Lang.diary_food}
@@ -90,8 +90,18 @@ class Diary extends Component {
 
                     <View style={styles.container}>
                         <View style={styles.containerDateTop}>
-                            <Text style={styles.textTopDate}>{Lang.selectedDate} {this.state.date}</Text>
-                            <DatePicker date={this.state.date} changeDate={(date) => this.setDate(date)} />
+                            <DatePicker
+                                defaultDate={new Date()}
+                                minimumDate={new Date(2018, 1, 1)}
+                                locale={Lang._language}
+                                timeZoneOffsetInMinutes={undefined}
+                                modalTransparent={false}
+                                animationType={"fade"}
+                                androidMode={"default"}
+                                textStyle={{ color: D_BLUE }}
+                                onDateChange={this.setDate}
+                                disabled={false}
+                            />
                         </View>
 
                         <DiaryUserStatistics />
@@ -118,9 +128,8 @@ class Diary extends Component {
                             />
                         }
                     </View>
-
-                </Container>
-            </ScrollView>
+                </ScrollView>
+            </Container>
         );
     }
 }

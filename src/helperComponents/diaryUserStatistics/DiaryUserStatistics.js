@@ -1,101 +1,119 @@
 import React, {Component} from 'react';
 import {ProgressBarAndroid, StyleSheet, Text, View} from 'react-native';
-import {D_GREY, W} from '../../index';
+import { Icon } from 'native-base';
+import { D_GREY, W, D_BLUE, Lang } from '../../index';
 
 export class DiaryUserStatistics extends Component {
-
     state = {
         spendCal: 250,
-        total: 2500
-        }
+        total: 2500,
+        moreInfo: false,
+    };
 
     render() {
         const styles = StyleSheet.create({
             containerInfoTop: {
                 width: W - 20,
-                padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                justifyContent: 'space-between',
+                justifyContent: 'space-around',
                 backgroundColor: D_GREY,
 
             },
             containerBox: {
+                width: W / 2 - 40,
                 backgroundColor: '#fff',
                 padding: 5,
-                margin: 5
+                marginTop: 10,
             },
-            textCenter: {
-               textAlign: 'center'
+            containerBoxLast: {
+                marginBottom: 10,
+            },
+            iconCenter: {
+                justifyContent: 'center',
             },
         });
         return (
-            <View style={styles.containerInfoTop}>
-                <View style={styles.containerBox}>
-                    <Text style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+            <View>
+                <View style={styles.containerInfoTop}>
+                    <View style={styles.containerBox}>
+                        <Text style={styles.textCenter}>{Lang.eaten}</Text>
+                        <ProgressBarAndroid
+                            color={D_BLUE}
+                            styleAttr="Horizontal"
+                            indeterminate={false}
+                            progress={this.state.spendCal/this.state.total}
+                        />
+                        <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.kcal}</Text>
+                    </View>
 
+                    <View style={styles.containerBox}>
+                        <Text  style={styles.textCenter}>{Lang.spent}</Text>
+                        <ProgressBarAndroid
+                            color={D_BLUE}
+                            styleAttr="Horizontal"
+                            indeterminate={false}
+                            progress={this.state.spendCal/this.state.total}
+                        />
+                        <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.kcal}</Text>
+                    </View>
                 </View>
 
-                <View style={styles.containerBox}>
-                    <Text  style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+                {this.state.moreInfo ?
+                    <View style={styles.containerInfoTop}>
+                        <View style={styles.containerBox}>
+                            <Text  style={styles.textCenter}>{Lang.protein}</Text>
+                            <ProgressBarAndroid
+                                color={D_BLUE}
+                                styleAttr="Horizontal"
+                                indeterminate={false}
+                                progress={this.state.spendCal/this.state.total}
+                            />
+                            <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.gram}</Text>
+                        </View>
 
-                </View>
+                        <View style={styles.containerBox}>
+                            <Text  style={styles.textCenter}>{Lang.fat}</Text>
+                            <ProgressBarAndroid
+                                color={D_BLUE}
+                                styleAttr="Horizontal"
+                                indeterminate={false}
+                                progress={this.state.spendCal/this.state.total}
+                            />
+                            <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.gram}</Text>
+                        </View>
 
-                <View style={styles.containerBox}>
-                    <Text  style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
+                        <View style={[styles.containerBox, styles.containerBoxLast]}>
+                            <Text  style={styles.textCenter}>{Lang.carbohydrates}</Text>
+                            <ProgressBarAndroid
+                                color={D_BLUE}
+                                styleAttr="Horizontal"
+                                indeterminate={false}
+                                progress={this.state.spendCal/this.state.total}
+                            />
+                            <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.gram}</Text>
+                        </View>
 
-                </View>
+                        <View style={[styles.containerBox, styles.containerBoxLast]}>
+                            <Text  style={styles.textCenter}>{Lang.water}</Text>
+                            <ProgressBarAndroid
+                                color={D_BLUE}
+                                styleAttr="Horizontal"
+                                indeterminate={false}
+                                progress={this.state.spendCal/this.state.total}
+                            />
+                            <Text>{this.state.spendCal} {Lang.outOff} {this.state.total} {Lang.gram}</Text>
+                        </View>
 
-                <View style={styles.containerBox}>
-                    <Text  style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
-
-                </View>
-
-                <View style={styles.containerBox}>
-                    <Text  style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
-
-                </View>
-
-                <View style={styles.containerBox}>
-                    <Text  style={styles.textCenter}>Съеденно</Text>
-                    <ProgressBarAndroid
-                        styleAttr="Horizontal"
-                        indeterminate={false}
-                        progress={this.state.spendCal/this.state.total}
-                    />
-                    <Text>{this.state.spendCal} ккал из  {this.state.total} ккал</Text>
-
-                </View>
+                        <View style={[styles.containerInfoTop, styles.iconCenter]}>
+                            <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: false})} name='arrow-up' />
+                        </View>
+                    </View>
+                    :
+                    <View style={[styles.containerInfoTop, styles.iconCenter]}>
+                        <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: true})} name='arrow-down' />
+                    </View>
+                }
             </View>
         );
     }

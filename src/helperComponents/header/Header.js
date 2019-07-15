@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Header, Left, Body, Right, Button, Icon, Segment, Text } from 'native-base';
+import {D_BLUE} from "../../index";
+import { Header, Left, Body, Right, Button, Segment, Text } from 'native-base';
 
 const HeaderUI = ({btnLeftName, btnRightName, onclickLeft, onclickRight, isLeftBtn}) => {
     return (
-        <Header hasSegment>
+        <Header hasSegment style={{ backgroundColor: D_BLUE }}>
             <Left />
             <Body>
-                <Segment>
+                <Segment style={{ backgroundColor: D_BLUE }}>
                     <Button onPress={onclickLeft} first active={isLeftBtn}>
                         <Text>{btnLeftName}</Text>
                     </Button>
