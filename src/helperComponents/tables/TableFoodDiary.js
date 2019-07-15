@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import {CLIENT_API, D_GREY, STATE_KEY, W, ActivityIndicatorUI, actionApp, changeStore} from "../../index";
+import { Icon } from 'native-base';
+import {CLIENT_API, STATE_KEY, W, ActivityIndicatorUI, actionApp, changeStore, D_BLUE} from "../../index";
 
 class TableFoodDiary extends Component {
     state = {
@@ -30,9 +31,8 @@ class TableFoodDiary extends Component {
                 width: W - 20,
                 flexDirection:'row',
                 flexWrap:'wrap',
-
+                alignItems: 'center',
                 textAlign: 'center',
-
             },
             tableColor: {
                 backgroundColor: '#fff',
@@ -41,9 +41,8 @@ class TableFoodDiary extends Component {
                 backgroundColor: 'rgba(66, 135, 245, 0.5)',
             },
             firstColMain: {
-          
                 padding: 5,
-                width: '50%',
+                width: '49%',
                 borderColor: '#000'
             },
             secondColMain: {
@@ -61,6 +60,8 @@ class TableFoodDiary extends Component {
             fourthColMain: {
                 padding: 5,
                 width: '10%',
+                fontSize: 20,
+                color: D_BLUE,
             },
             textAlign: {
                 textAlign: 'center',
@@ -78,9 +79,12 @@ class TableFoodDiary extends Component {
                             </TouchableOpacity>
                             <Text style={styles.secondColMain}>{data.time}</Text>
                             <Text style={styles.thirdColMain}>{data.kkal_summ}</Text>
-                            <TouchableOpacity style={styles.fourthColMain} onPress = {() => this.deleteDiaryFood(data)}>
-                                <Text style={styles.textAlign}>X</Text>
-                            </TouchableOpacity>
+                            <Icon
+                                style={styles.fourthColMain}
+                                name='delete'
+                                type='AntDesign'
+                                onPress = {() => this.deleteDiaryFood(data)}
+                            />
                         </View>
                     );
                 })}

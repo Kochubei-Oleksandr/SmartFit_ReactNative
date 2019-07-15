@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
-import {actionApp, changeStore, D_GREY, W, ActivityIndicatorUI, CLIENT_API, STATE_KEY} from "../../index";
+import { Icon } from 'native-base';
+import {actionApp, changeStore, W, ActivityIndicatorUI, CLIENT_API, STATE_KEY, D_BLUE} from "../../index";
 
 class TableActivityDiary extends Component {
     state = {
@@ -30,37 +31,37 @@ class TableActivityDiary extends Component {
                 width: W - 20,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                backgroundColor: D_GREY,
+                alignItems: 'center',
                 textAlign: 'center',
+            },
+            tableColor: {
+                backgroundColor: '#fff',
+            },
+            tableColor2: {
+                backgroundColor: 'rgba(66, 135, 245, 0.5)',
             },
             firstColMain: {
-                borderBottomWidth: 2,
-                borderLeftWidth: 2,
-                borderRightWidth: 2,
                 padding: 5,
-                textAlign: 'center',
-                width: '50%'
+                width: '49%',
+                borderColor: '#000'
             },
             secondColMain: {
-                borderBottomWidth: 2,
-                borderRightWidth: 2,
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                borderColor: '#000'
             },
             thirdColMain: {
-                borderBottomWidth: 2,
                 padding: 5,
                 textAlign: 'center',
-                width: '20%'
+                width: '20%',
+                borderColor: '#000'
             },
             fourthColMain: {
-                borderBottomWidth: 2,
-                borderLeftWidth: 2,
-                borderRightWidth: 2,
                 padding: 5,
-                textAlign: 'center',
-                width: '10%'
+                width: '10%',
+                fontSize: 20,
+                color: D_BLUE,
             },
             textAlign: {
                 textAlign: 'center',
@@ -72,15 +73,18 @@ class TableActivityDiary extends Component {
 
                 {this.props.data.map((data, i) => {
                     return (
-                        <View key={i} style={styles.tableMain}>
+                        <View key={i} style={[styles.tableMain, i % 2 === 0 ? styles.tableColor: styles.tableColor2]}>
                             <TouchableOpacity style={styles.firstColMain} onPress = {() => this.props.openModal(i)}>
                                 <Text>{data.name_exercise}</Text>
                             </TouchableOpacity>
                             <Text style={styles.secondColMain}>{data.time}</Text>
                             <Text style={styles.thirdColMain}>{data.kkal_lost}</Text>
-                            <TouchableOpacity style={styles.fourthColMain} onPress = {() => this.deleteDiaryActivity(data)}>
-                                <Text style={styles.textAlign}>X</Text>
-                            </TouchableOpacity>
+                            <Icon
+                                style={styles.fourthColMain}
+                                name='delete'
+                                type='AntDesign'
+                                onPress = {() => this.deleteDiaryActivity(data)}
+                            />
                         </View>
                     );
                 })}

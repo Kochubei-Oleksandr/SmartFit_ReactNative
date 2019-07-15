@@ -106,12 +106,12 @@ export class DiaryUserStatistics extends Component {
                         </View>
 
                         <View style={[styles.containerInfoTop, styles.iconCenter]}>
-                            <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: false})} name='arrow-up' />
+                            <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: false})} name='up' type='AntDesign'  />
                         </View>
                     </View>
                     :
                     <View style={[styles.containerInfoTop, styles.iconCenter]}>
-                        <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: true})} name='arrow-down' />
+                        <Icon style={{color: D_BLUE}} onPress = {() => this.setState({moreInfo: true})} name='down' type='AntDesign'  />
                     </View>
                 }
             </View>

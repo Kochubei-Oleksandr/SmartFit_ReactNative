@@ -27,6 +27,7 @@ export * from './helperFunctions/Trait';
 
 //Colors const
 export const L_GREY = '#FAFAFA';
+export const L_BLACK = '#545454';
 export const D_GREY = '#E0E0E0';
 export const L_BLUE = '#81D4FA';
 export const D_BLUE = '#0277BD';
