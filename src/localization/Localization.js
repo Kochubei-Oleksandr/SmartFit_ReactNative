@@ -19,7 +19,7 @@ const Lang = new LocalizedStrings({
         diary_food: 'Food Diary',
         diary_activity: 'Activity Diary',
         selectedDate: 'Selected date:',
-        foodName: 'Product Name',
+        foodName: 'Product name',
         date: 'Date',
         time: 'Time',
         kcal: 'Kcal',

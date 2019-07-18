@@ -44,6 +44,7 @@ const TouchableImageUI = ({source, onclick}) => {
 const RecipeImageUI = ({source}) => {
     const styles = StyleSheet.create({
         img: {
+            marginTop: 10,
             zIndex: 99,
             width: W,
             height: 300,

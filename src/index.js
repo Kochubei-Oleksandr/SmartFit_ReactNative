@@ -48,6 +48,7 @@ export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
 export * from './helperComponents/cards/Card';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';
+export * from './helperComponents/timePicker/TimePicker';
 export * from './helperComponents/tables';
 export * from './helperComponents/modals';
 

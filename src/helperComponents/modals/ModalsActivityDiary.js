@@ -70,6 +70,14 @@ class ModalsActivityDiary extends Component {
 
     render() {
         const styles = StyleSheet.create({
+            container: {
+                display: 'flex',
+                flexDirection: 'row',
+                flexWrap:'wrap',
+                justifyContent: 'center',
+                marginLeft: 20,
+                marginRight: 20,
+            },
             title: {
                 textAlign: 'center',
                 fontSize: 18,
@@ -98,73 +106,81 @@ class ModalsActivityDiary extends Component {
                     </View>
                 </View>
 
-                <BasicTextInputUI
-                    fieldName={'time'}
-                    placeholder={Lang.time}
-                    defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    formErrors={this.props.formErrors}
-                    changeInput={(time) => this.changeTime(time)}
-                />
-                <BasicTextInputUI
-                    fieldName={'time_one_exercise'}
-                    placeholder={Lang.timeOneExercise}
-                    defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time_one_exercise}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    formErrors={this.props.formErrors}
-                    changeInput={(time_one_exercise) => this.changeTimeOneExercise(time_one_exercise)}
-                />
-                <BasicTextInputUI
-                    fieldName={'rest_next_to_approach'}
-                    placeholder={Lang.restNextToApproach}
-                    defaultValue={this.props.userCompletedActivity[this.props.selectedItem].rest_next_to_approach}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    formErrors={this.props.formErrors}
-                    changeInput={(rest_next_to_approach) => this.changeRestNextToApproach(rest_next_to_approach)}
-                />
-                <BasicTextInputUI
-                    fieldName={'number_approaches'}
-                    placeholder={Lang.numberApproaches}
-                    defaultValue={this.props.userCompletedActivity[this.props.selectedItem].number_approaches}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    formErrors={this.props.formErrors}
-                    changeInput={(number_approaches) => this.changeNumberApproaches(number_approaches)}
-                />
+                <View style={styles.container}>
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'time'}
+                        placeholder={Lang.time}
+                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        formErrors={this.props.formErrors}
+                        changeInput={(time) => this.changeTime(time)}
+                    />
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'time_one_exercise'}
+                        placeholder={Lang.timeOneExercise}
+                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time_one_exercise}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        formErrors={this.props.formErrors}
+                        changeInput={(time_one_exercise) => this.changeTimeOneExercise(time_one_exercise)}
+                    />
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'rest_next_to_approach'}
+                        placeholder={Lang.restNextToApproach}
+                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].rest_next_to_approach}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        formErrors={this.props.formErrors}
+                        changeInput={(rest_next_to_approach) => this.changeRestNextToApproach(rest_next_to_approach)}
+                    />
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'number_approaches'}
+                        placeholder={Lang.numberApproaches}
+                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].number_approaches}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        formErrors={this.props.formErrors}
+                        changeInput={(number_approaches) => this.changeNumberApproaches(number_approaches)}
+                    />
 
-                {this.state.repetitions.map((data, i) => {
-                    return (
-                        <View key={i}>
-                            <BasicTextInputUI
-                                fieldName={'number_of_repetitions'}
-                                placeholder={Lang.numberOfRepetitions}
-                                defaultValue={data.number_of_repetitions}
-                                returnKeyType={'done'}
-                                autoCapitalize={'none'}
-                                autoCorrect={false}
-                                formErrors={this.props.formErrors}
-                                changeInput={(number_of_repetitions) => { data.number_of_repetitions = number_of_repetitions; this.changeDiaryActivity()} }
-                            />
-                            <BasicTextInputUI
-                                fieldName={'weight'}
-                                placeholder={Lang.burdenWeight}
-                                defaultValue={data.weight}
-                                returnKeyType={'done'}
-                                autoCapitalize={'none'}
-                                autoCorrect={false}
-                                formErrors={this.props.formErrors}
-                                changeInput={(weight) => { data.weight = weight; this.changeDiaryActivity()} }
-                            />
-                        </View>
-                    );
-                })}
+                    {this.state.repetitions.map((data, i) => {
+                        return (
+                            <View style={styles.container} key={i}>
+                                <BasicTextInputUI
+                                    widthPart={2}
+                                    fieldName={'number_of_repetitions'}
+                                    placeholder={Lang.numberOfRepetitions}
+                                    defaultValue={data.number_of_repetitions}
+                                    returnKeyType={'done'}
+                                    autoCapitalize={'none'}
+                                    autoCorrect={false}
+                                    formErrors={this.props.formErrors}
+                                    changeInput={(number_of_repetitions) => { data.number_of_repetitions = number_of_repetitions; this.changeDiaryActivity()} }
+                                />
+                                <BasicTextInputUI
+                                    widthPart={2}
+                                    fieldName={'weight'}
+                                    placeholder={Lang.burdenWeight}
+                                    defaultValue={data.weight}
+                                    returnKeyType={'done'}
+                                    autoCapitalize={'none'}
+                                    autoCorrect={false}
+                                    formErrors={this.props.formErrors}
+                                    changeInput={(weight) => { data.weight = weight; this.changeDiaryActivity()} }
+                                />
+                            </View>
+                        );
+                    })}
+                </View>
 
                 {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
             </ScrollView>

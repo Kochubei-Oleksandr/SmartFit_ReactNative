@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {View} from 'react-native';
-import {CALENDAR_BLUE_IMG, TouchableImageUI} from '../../index';
+import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {D_BLUE, NORMAL_DATE} from '../../index';
 import DateTimePicker from "react-native-modal-datetime-picker";
 
 export class DatePicker extends Component {
@@ -19,13 +19,21 @@ export class DatePicker extends Component {
     };
 
     render() {
+        const styles = StyleSheet.create({
+            textTopDate: {
+                marginRight: 10,
+                paddingTop: 2,
+                fontSize: 20,
+                color: D_BLUE,
+            }
+        });
         const date = this.props.date ? new Date(this.props.date) : new Date();
         return (
             <View>
-                <TouchableImageUI
-                    onclick={() => this.showDateTimePicker()}
-                    source={CALENDAR_BLUE_IMG}
-                />
+                <TouchableOpacity onPress = {() => this.showDateTimePicker()}>
+                    <Text style={styles.textTopDate}>{NORMAL_DATE(date)}</Text>
+                </TouchableOpacity>
+
                 <DateTimePicker
                     date={date}
                     isVisible={this.state.isDatePicker}

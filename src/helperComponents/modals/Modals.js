@@ -1,33 +1,27 @@
 import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View, Image, StyleSheet,} from 'react-native';
-import {Lang} from "../../index";
-import closeImg from "../../images/close-circula.png";
+import {Modal, Text, TouchableHighlight, View, Image, StyleSheet} from 'react-native';
+import { Icon } from 'native-base';
 import {ModalsFoodDiaryConnect, ModalsActivityDiaryConnect} from "./";
 
 export class Modals extends Component {
     render() {
-
         const styles = StyleSheet.create({
             btnModal: {
                 display: "flex",
                 marginLeft: 'auto',
                 marginTop: 10,
-                marginRight:10
-
-
+                marginRight:10,
+                color: 'red',
             }
         });
-
-            return (
-            <View style={{marginTop: 22}}>
+        return (
+            <View>
                 <Modal
                     animationType="slide"
                     transparent={false}
                     visible={this.props.showModal}
                 >
-                    <TouchableHighlight onPress={this.props.closeModal} style={styles.btnModal}>
-                        <Image source={closeImg} />
-                    </TouchableHighlight>
+                    <Icon onPress={this.props.closeModal} style={styles.btnModal} name='closecircleo' type='AntDesign' />
 
                     { this.props.modalsFoodDiary ? <ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} /> : null }
 

@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import { CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore,
-    BasicTextInputUI, Lang, D_GREY, RecipeImageUI } from "../../index";
+import { Container, Header, Content, Form, Item, Input, Label, Icon } from 'native-base';
+import { CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore, TimePicker,
+    BasicTextInputUI, Lang, RecipeImageUI, W } from "../../index";
 
 class ModalsFoodDiary extends Component {
     state = {
@@ -29,8 +30,8 @@ class ModalsFoodDiary extends Component {
                 STATE_KEY.basicRecipeInfo
             )
                 .then(success => {
+                    this.setState({ isLoggedIn: false });
                     if (success === true) {
-                        this.setState({ isLoggedIn: false });
                         this.setState({
                             photo: this.props.basicRecipeInfo[0].photo,
                             description: this.props.basicRecipeInfo[0].description
@@ -54,9 +55,7 @@ class ModalsFoodDiary extends Component {
             STATE_KEY.userEatenFood
         )
             .then(success => {
-                if (success === true) {
-                    this.setState({isLoggedIn: false});
-                }
+                this.setState({isLoggedIn: false});
             })
     };
     changeTime = (time) => {
@@ -71,22 +70,22 @@ class ModalsFoodDiary extends Component {
             container: {
                 display: 'flex',
                 flexDirection: 'row',
-                justifyContent: 'space-between',
-               
+                flexWrap:'wrap',
+                justifyContent: 'center',
+                marginLeft: 20,
+                marginRight: 20,
             },
-
             title: {
                 textAlign: 'center',
                 fontSize: 18,
-                marginTop: 10,
-                marginBottom: 20,
+                margin: 5,
                 color: '#000'
             },
             containerInfoTop: {
                 padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
-
+                justifyContent: 'center',
             },
             textTopInfo: {
                 padding: 5,
@@ -114,29 +113,25 @@ class ModalsFoodDiary extends Component {
                     </View>
                 </View>
 
-<View style={styles.container}>
-                <BasicTextInputUI
-                    fieldName={'time'}
-                    placeholder={Lang.time}
-                    defaultValue={this.props.userEatenFood[this.props.selectedItem].time}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    formErrors={this.props.formErrors}
-                    changeInput={(time) => this.changeTime(time)}
-                />
-                <BasicTextInputUI
-                    fieldName={'weight'}
-                    placeholder={Lang.weightPortion}
-                    defaultValue={this.props.userEatenFood[this.props.selectedItem].weight}
-                    returnKeyType={'done'}
-                    autoCapitalize={'none'}
-                    autoCorrect={false}
-                    keyboardType={'numeric'}
-                    formErrors={this.props.formErrors}
-                    changeInput={(weight) => this.changeWeight(weight)}
-                />
-</View>
+                <View style={styles.container}>
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'weight'}
+                        placeholder={Lang.weightPortion}
+                        defaultValue={this.props.userEatenFood[this.props.selectedItem].weight}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        keyboardType={'numeric'}
+                        formErrors={this.props.formErrors}
+                        changeInput={(weight) => this.changeWeight(weight)}
+                    />
+                    <TimePicker
+                        time={this.props.userEatenFood[this.props.selectedItem].time}
+                        changeTime={(time) => this.changeTime(time)}
+                        widthPart={2}
+                    />
+                </View>
 
 
                 {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}

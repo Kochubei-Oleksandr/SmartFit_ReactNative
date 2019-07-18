@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {TextInput, StyleSheet, View, Text, Image} from 'react-native';
 import {W} from '../../index';
+import { Container, Header, Content, Form, Item, Input, Label, Icon } from 'native-base';
 
 export class TextInputUI extends Component {
     render() {
@@ -52,23 +53,8 @@ export class TextInputUI extends Component {
 export class BasicTextInputUI extends Component {
     render() {
         const styles = StyleSheet.create({
-            input: {
-                display: 'flex',
-                backgroundColor: '#fff',
-                height: 40,
-                marginHorizontal: 10,
-                marginVertical: 10,
-                padding: 5,
-                borderWidth:1,
-                borderRadius: 10,
-                color: '#000',
-            },
             container: {
-                // width: W - 40,
-                // flex: 1,
-                // flexDirection: 'row',
-                // justifyContent: 'flex-start',
-                // alignItems: 'stretch',
+                width: W / this.props.widthPart - 30,
             },
             inlineText: {
 
@@ -87,20 +73,23 @@ export class BasicTextInputUI extends Component {
             }
         };
         return (
-            <View style={styles.container}>
-                <Text style={styles.inlineText}>{this.props.placeholder}</Text>
-                <TextInput
-                    style={styles.input}
-                    defaultValue={defaultValue()}
-                    autoCorrect={this.props.autoCorrect}
-                    autoCapitalize={this.props.autoCapitalize}
-                    returnKeyType={this.props.returnKeyType}
-                    keyboardType={this.props.keyboardType}
-                    placeholderTextColor="#000"
-                    underlineColorAndroid="transparent"
-                    onChangeText = {this.props.changeInput}
-                />
-                {checkError(this.props.fieldName) ? <Text>{checkError(this.props.fieldName)}</Text> : null}
+            <View>
+                <Item
+                    stackedLabel
+                    error={checkError(this.props.fieldName) ? true : false}
+                    bordered={true}
+                    style={styles.container}
+                >
+                    <Label>{this.props.placeholder}</Label>
+                    <Input
+                        value={defaultValue()}
+                        ref={this.props.fieldName}
+                        onChangeText = {this.props.changeInput}
+                        returnKeyType={this.props.returnKeyType}
+                        keyboardType={this.props.keyboardType}
+                    />
+                </Item>
+                {checkError(this.props.fieldName) ? <Text style={styles.container}>{checkError(this.props.fieldName)}</Text> : null}
             </View>
         );
     }
