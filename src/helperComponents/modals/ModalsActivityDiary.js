@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
 import {CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore,
-    BasicTextInputUI, Lang, D_GREY, CHANGE_REPETITIONS} from "../../index";
+    BasicTextInputUI, Lang, CHANGE_REPETITIONS} from "../../index";
 
 class ModalsActivityDiary extends Component {
     state = {
@@ -47,9 +47,7 @@ class ModalsActivityDiary extends Component {
             STATE_KEY.userCompletedActivity
         )
             .then(success => {
-                if (success === true) {
-                    this.setState({isLoggedIn: false});
-                }
+                this.setState({isLoggedIn: false});
             })
     };
     changeTime = (time) => {
@@ -81,43 +79,38 @@ class ModalsActivityDiary extends Component {
             title: {
                 textAlign: 'center',
                 fontSize: 18,
-                marginBottom: 10,
+                margin: 5,
                 color: '#000'
             },
             containerInfoTop: {
                 padding: 5,
                 flexDirection:'row',
                 flexWrap:'wrap',
-                backgroundColor: D_GREY,
+                justifyContent: 'center',
             },
             textTopInfo: {
-                padding: 3,
+                padding: 5,
+                color: '#fff',
+                backgroundColor: 'rgba(66, 135, 245, 0.5)',
+                margin: 3,
+                borderRadius: 10,
+                justifyContent: 'center',
             },
         });
         return (
             <ScrollView>
                 <Text style={styles.title}>{this.props.userCompletedActivity[this.props.selectedItem].name_exercise}</Text>
-
                 <View style={styles.containerInfoTop}>
                     <View style={styles.textTopInfo}>
                         <Text>{Lang.date}: {this.props.userCompletedActivity[this.props.selectedItem].date}</Text>
                         <Text>{Lang.kcal}: {this.props.userCompletedActivity[this.props.selectedItem].kkal_lost}</Text>
+                    </View>
+                    <View style={styles.textTopInfo}>
                         <Text>{Lang.numberOfRepetitions}: {this.props.userCompletedActivity[this.props.selectedItem].number_of_repetitions}</Text>
                     </View>
                 </View>
 
                 <View style={styles.container}>
-                    <BasicTextInputUI
-                        widthPart={2}
-                        fieldName={'time'}
-                        placeholder={Lang.time}
-                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time}
-                        returnKeyType={'done'}
-                        autoCapitalize={'none'}
-                        autoCorrect={false}
-                        formErrors={this.props.formErrors}
-                        changeInput={(time) => this.changeTime(time)}
-                    />
                     <BasicTextInputUI
                         widthPart={2}
                         fieldName={'time_one_exercise'}
@@ -151,36 +144,47 @@ class ModalsActivityDiary extends Component {
                         formErrors={this.props.formErrors}
                         changeInput={(number_approaches) => this.changeNumberApproaches(number_approaches)}
                     />
-
-                    {this.state.repetitions.map((data, i) => {
-                        return (
-                            <View style={styles.container} key={i}>
-                                <BasicTextInputUI
-                                    widthPart={2}
-                                    fieldName={'number_of_repetitions'}
-                                    placeholder={Lang.numberOfRepetitions}
-                                    defaultValue={data.number_of_repetitions}
-                                    returnKeyType={'done'}
-                                    autoCapitalize={'none'}
-                                    autoCorrect={false}
-                                    formErrors={this.props.formErrors}
-                                    changeInput={(number_of_repetitions) => { data.number_of_repetitions = number_of_repetitions; this.changeDiaryActivity()} }
-                                />
-                                <BasicTextInputUI
-                                    widthPart={2}
-                                    fieldName={'weight'}
-                                    placeholder={Lang.burdenWeight}
-                                    defaultValue={data.weight}
-                                    returnKeyType={'done'}
-                                    autoCapitalize={'none'}
-                                    autoCorrect={false}
-                                    formErrors={this.props.formErrors}
-                                    changeInput={(weight) => { data.weight = weight; this.changeDiaryActivity()} }
-                                />
-                            </View>
-                        );
-                    })}
+                    <BasicTextInputUI
+                        widthPart={2}
+                        fieldName={'time'}
+                        placeholder={Lang.time}
+                        defaultValue={this.props.userCompletedActivity[this.props.selectedItem].time}
+                        returnKeyType={'done'}
+                        autoCapitalize={'none'}
+                        autoCorrect={false}
+                        formErrors={this.props.formErrors}
+                        changeInput={(time) => this.changeTime(time)}
+                    />
                 </View>
+
+                {this.state.repetitions.map((data, i) => {
+                    return (
+                        <View style={styles.container} key={i}>
+                            <BasicTextInputUI
+                                widthPart={2}
+                                fieldName={'number_of_repetitions'}
+                                placeholder={Lang.numberOfRepetitions}
+                                defaultValue={data.number_of_repetitions}
+                                returnKeyType={'done'}
+                                autoCapitalize={'none'}
+                                autoCorrect={false}
+                                formErrors={this.props.formErrors}
+                                changeInput={(number_of_repetitions) => { data.number_of_repetitions = number_of_repetitions; this.changeDiaryActivity()} }
+                            />
+                            <BasicTextInputUI
+                                widthPart={2}
+                                fieldName={'weight'}
+                                placeholder={Lang.burdenWeight}
+                                defaultValue={data.weight}
+                                returnKeyType={'done'}
+                                autoCapitalize={'none'}
+                                autoCorrect={false}
+                                formErrors={this.props.formErrors}
+                                changeInput={(weight) => { data.weight = weight; this.changeDiaryActivity()} }
+                            />
+                        </View>
+                    );
+                })}
 
                 {this.state.isLoggedIn ? <ActivityIndicatorUI /> : null}
             </ScrollView>

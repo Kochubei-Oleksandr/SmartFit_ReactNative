@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {Text, View, StyleSheet, ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import { Container, Header, Content, Form, Item, Input, Label, Icon } from 'native-base';
 import { CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore, TimePicker,
-    BasicTextInputUI, Lang, RecipeImageUI, W } from "../../index";
+    BasicTextInputUI, Lang, RecipeImageUI } from "../../index";
 
 class ModalsFoodDiary extends Component {
     state = {
