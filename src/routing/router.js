@@ -47,7 +47,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.diary,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={DIARY_BLUE_IMG} /> : <ImageUI source={DIARY_IMG} />
+                    return focused ? <ImageUI source={DIARY_BLUE_IMG} h={30} w={30} /> : <ImageUI source={DIARY_IMG} h={30} w={30} />
                 }
             }
         },
@@ -56,7 +56,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.trainers,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={TRAINERS_BLUE_IMG} /> : <ImageUI source={TRAINERS_IMG} />
+                    return focused ? <ImageUI source={TRAINERS_BLUE_IMG} h={30} w={30} /> : <ImageUI source={TRAINERS_IMG} h={30} w={30} />
                 }
             }
         },
@@ -65,7 +65,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.food,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={FOOD_BLUE_IMG} /> : <ImageUI source={FOOD_IMG} />
+                    return focused ? <ImageUI source={FOOD_BLUE_IMG} h={30} w={30} /> : <ImageUI source={FOOD_IMG} h={30} w={30} />
                 }
             }
         },
@@ -74,7 +74,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.activity,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={ACTIVITY_BLUE_IMG} /> : <ImageUI source={ACTIVITY_IMG} />
+                    return focused ? <ImageUI source={ACTIVITY_BLUE_IMG} h={30} w={30} /> : <ImageUI source={ACTIVITY_IMG} h={30} w={30} />
                 }
             }
         },
@@ -83,7 +83,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.progress,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={PROGRESS_BLUE_IMG} /> : <ImageUI source={PROGRESS_IMG} />
+                    return focused ? <ImageUI source={PROGRESS_BLUE_IMG} h={30} w={30} /> : <ImageUI source={PROGRESS_IMG} h={30} w={30} />
                 }
             }
         },
@@ -92,7 +92,7 @@ const DashboardTabNavigator = createBottomTabNavigator(
             navigationOptions: {
                 tabBarLabel: Lang.personal,
                 tabBarIcon: ({ focused, horizontal, tintColor }) => {
-                    return focused ? <ImageUI source={PERSONAL_BLUE_IMG} /> : <ImageUI source={PERSONAL_IMG} />
+                    return focused ? <ImageUI source={PERSONAL_BLUE_IMG} h={30} w={30} /> : <ImageUI source={PERSONAL_IMG} h={30} w={30} />
                 }
             }
         },

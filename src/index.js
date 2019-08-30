@@ -15,6 +15,7 @@ import personalBlueImg from './images/person_blue.png';
 import progressImg from './images/progress.png';
 import progressBlueImg from './images/progress_blue.png';
 import calendarBlueImg from './images/calendar.png';
+import emptyAvatarImg from './images/empty_avatar.png';
 
 //Add support file & support constant
 export const W = Dimensions.get('window').width;
@@ -77,3 +78,4 @@ export const PERSONAL_BLUE_IMG = personalBlueImg;
 export const PROGRESS_IMG = progressImg;
 export const PROGRESS_BLUE_IMG = progressBlueImg;
 export const CALENDAR_BLUE_IMG = calendarBlueImg;
+export const EMPTY_AVATAR_IMG = emptyAvatarImg;

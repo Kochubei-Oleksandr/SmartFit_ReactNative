@@ -53,8 +53,10 @@ class AllTrainers extends Component {
         return (
             <ScrollView>
                 <BasicTextInputUI
+                    widthPart={1}
                     fieldName={'nickname'}
                     placeholder={Lang.searchNickName}
+                    defaultValue={this.state.search}
                     autoCapitalize={'none'}
                     returnKeyType={'done'}
                     autoCorrect={false}

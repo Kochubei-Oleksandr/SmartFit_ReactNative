@@ -2,13 +2,12 @@ import React from 'react';
 import { StyleSheet, Image, TouchableOpacity } from 'react-native';
 import {W} from '../../index';
 
-const ImageUI = ({source}) => {
+const ImageUI = ({ source, h, w }) => {
     const styles = StyleSheet.create({
         inlineImg: {
-            position: 'absolute',
             zIndex: 99,
-            width: 30,
-            height: 30,
+            width: w,
+            height: h,
         },
     });
 
