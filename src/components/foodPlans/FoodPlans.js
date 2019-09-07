@@ -1,20 +1,25 @@
 import React, {Component} from 'react';
 import {StyleSheet, ScrollView, View} from 'react-native';
 import {H, L_GREY, Lang, W, HeaderUI} from "../../index";
-import MyTrainersConnect from './MyTrainers';
-import AllTrainersConnect from './AllTrainers';
+import BoughtFoodPlans from './BoughtFoodPlans';
+import DefaultFoodPlans from './DefaultFoodPlans';
+import TrainerFoodPlans from './TrainerFoodPlans';
 
-export class Trainers extends Component {
+export class FoodPlans extends Component {
     state = {
         isLeftBtn: true,
+        isCenterBtn: false,
         isRightBtn: false,
         isLoggedIn: false
     };
     clickLeftBtn() {
-        this.setState({isLeftBtn: true, isRightBtn: false});
+        this.setState({isLeftBtn: true, isCenterBtn: false, isRightBtn: false});
+    }
+    clickCenterBtn() {
+        this.setState({isLeftBtn: false, isCenterBtn: true, isRightBtn: false});
     }
     clickRightBtn() {
-        this.setState({isLeftBtn: false, isRightBtn: true});
+        this.setState({isLeftBtn: false, isCenterBtn: false, isRightBtn: true});
     }
     render() {
         const styles = StyleSheet.create({
@@ -29,16 +34,21 @@ export class Trainers extends Component {
         return (
             <ScrollView>
                 <HeaderUI
-                    btnLeftName={Lang.myTrainers}
-                    btnRightName={Lang.allTrainers}
+                    btnLeftName={Lang.boughtFoodPlan}
+                    btnCenterName={Lang.defaultFoodPlan}
+                    btnRightName={Lang.trainerFoodPlan}
                     onclickLeft={() => this.clickLeftBtn()}
+                    onclickCenter={() => this.clickCenterBtn()}
                     onclickRight={() => this.clickRightBtn()}
                     isLeftBtn={this.state.isLeftBtn}
+                    isCenterBtn={this.state.isCenterBtn}
                     isRightBtn={this.state.isRightBtn}
                 />
 
                 <View style={styles.container}>
-                    { this.state.isLeftBtn ? <MyTrainersConnect /> : <AllTrainersConnect /> }
+                    { this.state.isLeftBtn ? <BoughtFoodPlans /> : null}
+                    { this.state.isCenterBtn ? <DefaultFoodPlans /> : null}
+                    { this.state.isRightBtn ? <TrainerFoodPlans /> : null}
                 </View>
             </ScrollView>
         );

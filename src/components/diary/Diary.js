@@ -80,6 +80,7 @@ class Diary extends Component {
                         onclickLeft={() => this.clickLeftBtn()}
                         onclickRight={() => this.clickRightBtn()}
                         isLeftBtn={this.state.isLeftBtn}
+                        isRightBtn={this.state.isRightBtn}
                     />
 
                     <View style={styles.container}>

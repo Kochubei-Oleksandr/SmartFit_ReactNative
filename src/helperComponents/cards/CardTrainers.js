@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {D_GREY, D_BLUE, W, TrainerAvatarImageUI, ImageUI, EMPTY_AVATAR_IMG} from '../../index';
 
-export class Card extends Component {
+export class CardTrainers extends Component {
     render() {
         const styles = StyleSheet.create({
             containerTop: {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ScrollView} from 'react-native';
 import {connect} from 'react-redux';
-import {Lang, BasicTextInputUI, Card, CLIENT_API, STATE_KEY, actionApp, changeStore, ActivityIndicatorUI} from "../../index";
+import {Lang, BasicTextInputUI, CardTrainers, CLIENT_API, STATE_KEY, actionApp, changeStore, ActivityIndicatorUI} from "../../index";
 
 class AllTrainers extends Component {
     state = {
@@ -68,7 +68,7 @@ class AllTrainers extends Component {
 
                 {this.props.trainerStack.map((data, i) => {
                     return (
-                        <Card
+                        <CardTrainers
                             actionName={Lang.subscribe}
                             actionCard={(idTrainer) => this.subscribeAction(idTrainer)}
                             key={i}

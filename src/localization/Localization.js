@@ -45,6 +45,9 @@ const Lang = new LocalizedStrings({
         eaten: 'Eaten',
         spent: 'Spent',
         gram: 'Gram',
+        boughtFoodPlan: 'Acquired',
+        defaultFoodPlan: 'Standard',
+        trainerFoodPlan: 'Trainers',
 
     },
     de: {
@@ -91,7 +94,9 @@ const Lang = new LocalizedStrings({
         eaten: 'Gegessen',
         spent: 'Ausgegeben',
         gram: 'Gramm',
-
+        boughtFoodPlan: 'Erworben',
+        defaultFoodPlan: 'Standard',
+        trainerFoodPlan: 'Trainer',
 
     },
     ru: {
@@ -138,6 +143,9 @@ const Lang = new LocalizedStrings({
         eaten: 'Съедено',
         spent: 'Потрачено',
         gram: 'Грамм',
+        boughtFoodPlan: 'Приобретенные',
+        defaultFoodPlan: 'Стандартные',
+        trainerFoodPlan: 'Тренеров',
 
     }
 });

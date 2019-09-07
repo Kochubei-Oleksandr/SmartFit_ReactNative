@@ -39,14 +39,14 @@ export * from './components/auth/Register';
 export * from './components/auth/ResetPassword';
 export * from './components/diary/Diary';
 export * from './components/trainers/Trainers';
-export * from './components/foodPlans/foodPlans';
-export * from './components/activityPlans/activityPlans';
+export * from './components/foodPlans/FoodPlans';
+export * from './components/activityPlans/ActivityPlans';
 export * from './components/profile/Profile';
 export * from './components/progress/Progress';
 
 //Add Helper components
 export * from './helperComponents/diaryUserStatistics/DiaryUserStatistics';
-export * from './helperComponents/cards/Card';
+export * from './helperComponents/cards';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';
 export * from './helperComponents/timePicker/TimePicker';

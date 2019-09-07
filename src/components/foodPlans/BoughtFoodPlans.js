@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {StyleSheet, Text, View} from 'react-native'
 
-export class FoodPlans extends Component {
+export default class BoughtFoodPlans extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.welcome}>FoodPlans</Text>
+                <Text style={styles.welcome}>BoughtFoodPlans</Text>
             </View>
         );
     }

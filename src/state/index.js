@@ -18,6 +18,9 @@ const INITIAL_STATE = {
     trainerUsersStack: [],
     //Список всех тренеров, которые есть на сервисе
     trainerStack: [],
+    //Список всех планов питание тренеров, которые пользователь еще не купил
+    trainerFoodPlanList: [],
+
 };
 
 const STATE_KEY = {};
