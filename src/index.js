@@ -54,12 +54,12 @@ export * from './helperComponents/tables';
 export * from './helperComponents/modals';
 
 //Add UI components
-export * from './ui/textInput/TextInput';
-export * from './ui/buttons/Buttons';
+export * from './ui/textInput';
+export * from './ui/buttons';
 export * from './ui/switches/Switches';
 export * from './ui/wallpaper/Wallpaper';
 export * from './ui/activityIndicator/ActivityIndicator';
-export * from './ui/image/Image';
+export * from './ui/image';
 
 //Add images
 export const USER_IMG = usernameImg;
