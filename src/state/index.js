@@ -20,6 +20,8 @@ const INITIAL_STATE = {
     trainerStack: [],
     //Список всех планов питание тренеров, которые пользователь еще не купил
     trainerFoodPlanList: [],
+    //краткая информация выбранного тренерского плана (юзер не купил)
+    trainerFoodPlanElements: [],
 
 };
 

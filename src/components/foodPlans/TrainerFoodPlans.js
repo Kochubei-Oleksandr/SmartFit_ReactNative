@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {ScrollView} from 'react-native';
-import {STATE_KEY, CLIENT_API, actionApp, changeStore, Lang, ActivityIndicatorUI, CardTrainerPlans} from "../../index";
+import {ScrollView, View} from 'react-native';
+import {STATE_KEY, CLIENT_API, actionApp, changeStore, Lang, ActivityIndicatorUI, CardTrainerPlans, Modals} from "../../index";
 
 class TrainerFoodPlans extends Component {
     state = {
+        isShowModal: false,
         isLeftBtn: true,
         isRightBtn: false,
         isLoggedIn: false,
@@ -34,8 +35,33 @@ class TrainerFoodPlans extends Component {
             STATE_KEY.trainerFoodPlanList
         )
             .then(success => {
-                console.log(this.props.trainerFoodPlanList);
                 if (success === true) {
+                    this.setState({isLoggedIn: false});
+                }
+            })
+    };
+    actionCard = (dataPlan) => {
+        this.showFoodPlanDetails(dataPlan.id);
+    };
+    openModal = () => {
+        this.setState({ isShowModal: true });
+    };
+    closeModal = () => {
+        this.setState({ isShowModal: false });
+    };
+    showFoodPlanDetails = (id_plan) => {
+        this.setState({isLoggedIn: true});
+        this.props.actionApp(
+            {
+                id_plan: id_plan,
+            },
+            'get',
+            CLIENT_API + '/trainer-food-plan',
+            STATE_KEY.trainerFoodPlanElements
+        )
+            .then(success => {
+                if (success === true) {
+                    this.openModal();
                     this.setState({isLoggedIn: false});
                 }
             })
@@ -48,13 +74,20 @@ class TrainerFoodPlans extends Component {
                 {this.props.trainerFoodPlanList.map((data, i) => {
                     return (
                         <CardTrainerPlans
-                            actionName={Lang.unsubscribe}
-                            actionCard={(idTrainer) => this.showTrainerFoodPlans(idTrainer)}
+                            actionName={Lang.readMore}
+                            costName={Lang.cost}
                             key={i}
                             data={data}
+                            actionCard={(dataPlan) => this.actionCard(dataPlan)}
                         />
                     );
                 })}
+                <Modals
+                    modalsNotBuyPlans={true}
+                    showModal={this.state.isShowModal}
+                    closeModal={this.closeModal}
+                    data={this.props.trainerFoodPlanElements}
+                />
             </ScrollView>
         );
     }
@@ -62,6 +95,7 @@ class TrainerFoodPlans extends Component {
 
 const mapStateToProps = state => ({
     trainerFoodPlanList: state.trainerFoodPlanList,
+    trainerFoodPlanElements: state.trainerFoodPlanElements,
 });
 
 const TrainerFoodPlansConnect = connect(mapStateToProps, {actionApp, changeStore})(TrainerFoodPlans);

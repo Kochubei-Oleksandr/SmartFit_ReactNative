@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import {D_GREY, D_BLUE, W, TrainerPlansImageUI} from '../../index';
+import { AirbnbRating } from 'react-native-ratings';
 
 export class CardTrainerPlans extends Component {
     render() {
@@ -12,12 +13,6 @@ export class CardTrainerPlans extends Component {
                 marginBottom: 7,
                 marginTop: 7,
             },
-            // itemLeft: {
-            //     // padding: 5,
-            // },
-            // itemRight: {
-            //     padding: 5,
-            // },
             title: {
                 textAlign: 'center',
                 marginRight: 20,
@@ -33,10 +28,13 @@ export class CardTrainerPlans extends Component {
                 marginLeft: 10,
             },
             containerAction: {
-
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                alignItems: 'center',
             },
-            touchableAction: {
+            touchableText: {
                 color: D_BLUE,
+                textTransform: 'uppercase',
             },
         });
         return (
@@ -54,7 +52,23 @@ export class CardTrainerPlans extends Component {
                     </Text>
                     <Text style={styles.headline}>{this.props.data.headline}</Text>
                     <View style={styles.containerAction}>
-
+                        <AirbnbRating
+                            size={20}
+                            showRating={false}
+                            selectedColor={D_BLUE}
+                            defaultRating={this.props.data.rating}
+                            isDisabled={true}
+                        />
+                        {this.props.data.cost == 0 && this.props.data.cost == null && this.props.costName ?
+                            <Text>{this.props.costName}: 0$</Text>
+                            :
+                            <View>
+                                {this.props.costName ? <Text>{this.props.costName}: {this.props.data.cost}$</Text> : null}
+                            </View>
+                        }
+                        <TouchableOpacity onPress = {() => this.props.actionCard(this.props.data)}>
+                            <Text style={styles.touchableText}>{this.props.actionName}</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </View>

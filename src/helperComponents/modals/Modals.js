@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {Modal, Text, TouchableHighlight, View, Image, StyleSheet} from 'react-native';
+import {Modal, View, StyleSheet} from 'react-native';
 import { Icon } from 'native-base';
-import {ModalsFoodDiaryConnect, ModalsActivityDiaryConnect} from "./";
+import {ModalsFoodDiaryConnect, ModalsActivityDiaryConnect, ModalsNotBuyPlans} from "./";
 
 export class Modals extends Component {
     render() {
@@ -26,6 +26,8 @@ export class Modals extends Component {
                     { this.props.modalsFoodDiary ? <ModalsFoodDiaryConnect selectedItem={this.props.selectedItem} /> : null }
 
                     { this.props.modalsActivityDiary ? <ModalsActivityDiaryConnect selectedItem={this.props.selectedItem} /> : null }
+
+                    { this.props.modalsNotBuyPlans ? <ModalsNotBuyPlans data={this.props.data} /> : null }
 
                 </Modal>
             </View>
