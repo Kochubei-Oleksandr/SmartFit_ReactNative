@@ -99,6 +99,7 @@ export class Register extends Component {
                             onclick={(confirm) => this.setState({confirm})}
                         />
                         <ButtonsUI
+                            minusWidth={40}
                             btnName={Lang.submit}
                             onclick={() => this.register()}
                             isLoggedIn={this.state.isLoggedIn}

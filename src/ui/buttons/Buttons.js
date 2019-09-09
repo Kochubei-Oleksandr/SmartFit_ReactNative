@@ -2,14 +2,14 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, Text } from 'react-native';
 import {W, ActivityIndicatorUI} from '../../index';
 
-const ButtonsUI = ({btnName, onclick, isLoggedIn}) => {
+const ButtonsUI = ({btnName, onclick, isLoggedIn, minusWidth}) => {
     const styles = StyleSheet.create({
         submitButton: {
             backgroundColor: 'rgba(0, 0, 255, 0.5);',
             padding: 10,
             margin: 10,
             borderRadius: 20,
-            width: W - 40,
+            width: W - minusWidth,
             height: 40
         },
         submitButtonText:{

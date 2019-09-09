@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Text, View, StyleSheet, ScrollView} from 'react-native';
-import {connect} from 'react-redux';
-import {CLIENT_API, STATE_KEY, ActivityIndicatorUI, actionApp, changeStore,
-    BasicTextInputUI, Lang, CHANGE_REPETITIONS} from "../../index";
+import {ScrollView} from 'react-native';
+import {Lang, TablesInModalHeader} from "../../index";
 
 export class ModalsNotBuyPlans extends Component {
     componentDidMount() {
@@ -11,7 +9,15 @@ export class ModalsNotBuyPlans extends Component {
     render() {
         return (
             <ScrollView>
-
+                <TablesInModalHeader
+                    modalsNotBuyPlans={true}
+                    data={this.props.data}
+                    costPlan={this.props.costPlan}
+                    firstColProperty={this.props.firstColProperty}
+                    firstColName={Lang.foodName}
+                    secondColName={Lang.day}
+                    thirdColName={Lang.time}
+                />
             </ScrollView>
         );
     }

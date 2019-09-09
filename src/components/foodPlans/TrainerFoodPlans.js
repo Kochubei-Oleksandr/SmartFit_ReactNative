@@ -15,6 +15,7 @@ class TrainerFoodPlans extends Component {
         id_trainer: null,
         plansWithDelivery: null,
         sort: null,
+        costPlan: null,
     };
     componentDidMount() {
         this.showTrainerFoodPlans();
@@ -41,7 +42,7 @@ class TrainerFoodPlans extends Component {
             })
     };
     actionCard = (dataPlan) => {
-        this.showFoodPlanDetails(dataPlan.id);
+        this.showFoodPlanDetails(dataPlan.id, dataPlan.cost);
     };
     openModal = () => {
         this.setState({ isShowModal: true });
@@ -49,7 +50,7 @@ class TrainerFoodPlans extends Component {
     closeModal = () => {
         this.setState({ isShowModal: false });
     };
-    showFoodPlanDetails = (id_plan) => {
+    showFoodPlanDetails = (id_plan, costPlan) => {
         this.setState({isLoggedIn: true});
         this.props.actionApp(
             {
@@ -62,7 +63,7 @@ class TrainerFoodPlans extends Component {
             .then(success => {
                 if (success === true) {
                     this.openModal();
-                    this.setState({isLoggedIn: false});
+                    this.setState({isLoggedIn: false, costPlan: costPlan});
                 }
             })
     };
@@ -87,6 +88,11 @@ class TrainerFoodPlans extends Component {
                     showModal={this.state.isShowModal}
                     closeModal={this.closeModal}
                     data={this.props.trainerFoodPlanElements}
+                    firstColProperty={'name_food'}
+                    costPlan={this.state.costPlan}
+                    firstColName={Lang.foodName}
+                    secondColName={Lang.day}
+                    thirdColName={Lang.time}
                 />
             </ScrollView>
         );

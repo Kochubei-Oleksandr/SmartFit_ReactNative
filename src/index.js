@@ -50,7 +50,8 @@ export * from './helperComponents/cards';
 export * from './helperComponents/header/Header';
 export * from './helperComponents/datePicker/DatePicker';
 export * from './helperComponents/timePicker/TimePicker';
-export * from './helperComponents/tables';
+export * from './helperComponents/tablesDiary';
+export * from './helperComponents/tablesInModal';
 export * from './helperComponents/modals';
 
 //Add UI components

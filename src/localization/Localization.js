@@ -21,6 +21,8 @@ const Lang = new LocalizedStrings({
         selectedDate: 'Selected date:',
         foodName: 'Product name',
         date: 'Date',
+        day: 'Day',
+        days: 'days',
         time: 'Time',
         kcal: 'Kcal',
         weightPortion: 'Portion Weight',
@@ -50,6 +52,8 @@ const Lang = new LocalizedStrings({
         trainerFoodPlan: 'Trainers',
         cost: 'Price',
         readMore: 'Read more',
+        costPlan: 'The cost of this plan is',
+        buy: 'Buy',
 
 
     },
@@ -73,6 +77,8 @@ const Lang = new LocalizedStrings({
         selectedDate: 'Ausgewähltes Datum:',
         foodName: 'Produktname',
         date: 'Datum',
+        day: 'Tag',
+        days: 'Tage',
         time: 'Zeit',
         kcal: 'Kcal',
         weightPortion: 'Portionsgewicht',
@@ -102,6 +108,8 @@ const Lang = new LocalizedStrings({
         trainerFoodPlan: 'Trainer',
         cost: 'Preis',
         readMore: 'Lesen Sie weiter',
+        costPlan: 'Die Kosten für diesen Plan betragen',
+        buy: 'Kaufen',
 
 
     },
@@ -125,6 +133,8 @@ const Lang = new LocalizedStrings({
         selectedDate: 'Выбранная дата:',
         foodName: 'Название продукта',
         date: 'Дата',
+        day: 'День',
+        days: 'дней',
         time: 'Время',
         kcal: 'Ккал',
         weightPortion: 'Вес порции',
@@ -154,6 +164,8 @@ const Lang = new LocalizedStrings({
         trainerFoodPlan: 'Тренеров',
         cost: 'Цена',
         readMore: 'Подробнее',
+        costPlan: 'Стоимость данного плана составляет',
+        buy: 'Приобрести',
 
     }
 });

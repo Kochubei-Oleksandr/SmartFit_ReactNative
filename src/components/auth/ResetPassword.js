@@ -69,6 +69,7 @@ class ResetPassword extends Component {
                         changeInput={(email) => this.setState({email})}
                     />
                     <ButtonsUI
+                        minusWidth={40}
                         btnName={Lang.submit}
                         onclick={() => this.resetPassword()}
                         isLoggedIn={this.state.isLoggedIn}

@@ -27,7 +27,18 @@ export class Modals extends Component {
 
                     { this.props.modalsActivityDiary ? <ModalsActivityDiaryConnect selectedItem={this.props.selectedItem} /> : null }
 
-                    { this.props.modalsNotBuyPlans ? <ModalsNotBuyPlans data={this.props.data} /> : null }
+                    { this.props.modalsNotBuyPlans ?
+                        <ModalsNotBuyPlans
+                            data={this.props.data}
+                            costPlan={this.props.costPlan}
+                            firstColProperty={this.props.firstColProperty}
+                            firstColName={this.props.firstColName}
+                            secondColName={this.props.secondColName}
+                            thirdColName={this.props.thirdColName}
+                        />
+                        :
+                        null
+                    }
 
                 </Modal>
             </View>

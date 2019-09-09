@@ -87,6 +87,7 @@ class Login extends Component {
                         changeInput={(password) => this.setState({password})}
                     />
                     <ButtonsUI
+                        minusWidth={40}
                         btnName={Lang.submit}
                         onclick={() => this.login()}
                         isLoggedIn={this.state.isLoggedIn}
